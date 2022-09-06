@@ -85,7 +85,9 @@
             1. 크기 설정없이 auto인 상태 : 패딩과 보더가 안쪽 포함
             2. width, height 크기를 줄 경우 패딩과 보더는 바깥으로 나감
             (박스가 설정된 크기보다 커짐!!! -> 컨텐트 박스 content-box)
-            
+            3. 만약 width, height 크기를 유지하고 패딩과 보더를 안쪽으로 
+            포함시키려면 아래의 속성으로 셋팅한다.
+                box-sizing: border-box(bxb)
 
             _____________________________________________________
             
@@ -171,37 +173,53 @@
                     예) red, green, blue, pink, navy, 등
                     - 모든 색상은 w3schools.com의 색상참조로 가서확인!
                     https://www.w3schools.com/cssref/css_colors.asp
+                    
+            ________________________________________________________
+            
+            [ css 적용 우선 순위]
 
+            inline > id > class > type
+
+            - 인라인이 가장 쎔!
+            - 약한 경우에 순위를 가장 높이는 방법! -> important
+            -> 이 방법은 인라인보다도 쎄기 때문에 함부로 쓰면 X
+
+            ____________________________________________________
         */
 
+        
         /* 박스공통 */
         .part {
             width: 750px;
-            border: 2px solid gray;
+            border: 2px solid rgb(4, 77, 1);
             /*두께 종류 색상*/
             padding: 10px;
             margin: 20px auto;
-
+            border-radius: 15px; /* 테두리 둥글게 */
             /* 마진 : 위아래 양쪽
-                양쪽을 auto로 주면 블록박스가 중앙으로 
-                margin : 0 auto 주는 경우 많아 마영오라 불림
-                 */
+            양쪽을 auto로 주면 블록박스가 중앙으로 
+            margin : 0 auto 주는 경우 많아 마영오라 불림
+            */
 
+            box-sizing: border-box;
         }
 
         /*상단영역*/
         header {
-            height: 150px;
+            height: 180px;
             text-align: center;
-
+            background: rgb(221, 255, 218);
             /* 글자 중앙 tac */
+
+            /* 둥근 테두리 */
+            
         }
 
         /* 타이틀 */
         header h1 {
             font-size: 50px;
             /* fz */
-            font-weight: normal;
+            /* font-weight: normal; */
             font-family: '바탕', sans-serif;
             color: rgb(18, 183, 49);
             letter-spacing: 3px;
@@ -212,6 +230,13 @@
             /* font-family: sans-serif, "굴림,""궁서"; */
         }
 
+        
+        .info span{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+            color: blue;
+            text-decoration: underline;
+            text-decoration-style: dotted; /* 글자 데코 종류 */
+        }
 
         /* 메뉴 GNB */
         #gnb>a {
@@ -229,12 +254,25 @@
         /* hover 가상클래스 */
         /* a+a 앞에 a가 있는 형제 a요소 */
 
+
         #gnb>a+a:hover{
             color: hotpink;
             text-decoration: underline;
             /* 외각선 표시  */
             outline: 1px solid red;
         }
+
+        /* 로고 링크 */
+        #gnb img{
+            width: 30px !important;
+            /* 인라인 보다 최우선인 important 사용
+            하지만 주의하여 사용, JS 코드가 안 먹힐 수 있음 */
+
+            /* 이미지 옆 인라인 요소 세로 방향 위치 정렬 va*/
+            vertical-align: -8px;
+            margin-right: -10px;
+        }
+
 
         /* 메인영역 이미지 */
         main img {
@@ -244,7 +282,19 @@
         /* 하단 영역 */
         footer.info {
             text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(237, 237, 237);
+        
         }
+
+        /* 주소요소 */
+        address{
+            font-style: normal;
+            font-family: '굴림';
+            font-size: 14px;
+            /* 폰트 스타일 */
+        }
+
     </style>
 </head>
 
@@ -257,14 +307,14 @@
         <!-- 1-2 GNB메뉴-->
         <!-- GNB란 Global Navigation Bar -->
         <div id="gnb">
-            <a href="#">
-                <img src="./images/naverlogo.png" alt="네이버로고" style="width: 30px;">
+            <a href="#index.html" title="메인 페이지로 이동하기">
+                <img src="./images/naverlogo.png" alt="네이버로고" style="width: 20px;">
             </a>
-            <a href="#">정치</a>  |
-            <a href="#">경제</a>  |
-            <a href="#">사회</a>  |
-            <a href="#">IT/과학</a> | 
-            <a href="#">TV/연예</a>
+            <a href="#sub1.html">정치</a>  |
+            <a href="#sub2.html">경제</a>  |
+            <a href="#sub3.html">사회</a>  |
+            <a href="#sub4.html">IT/과학</a> | 
+            <a href="#sub5.html">TV/연예</a>
         </div>
 
     </header>
@@ -278,7 +328,7 @@
         <!-- 회사 주소 및 정보 -->
         <address>
             서울시 강남구 역삼동 119 대호빌딩 8F <br>
-            대표 : Min Dung Kim <br>
+            대표 : <span>Min Dung Kim</span> <br>
             전화 : 010-1234-5678 <br>
         </address>
     </footer>
@@ -301,7 +351,13 @@
             5. aside : 부수적인 내용 영역
             6. section : 내용구분을 위한 영역
             7. article : 독립적인 내용을 구분하는 영역
-            (보통 article이나 section은 w3c에서 heading 태그(h1~h6)를 내용에 사용할 것을 권고 - 안써도 무관)
+            (보통 article이나 section은 w3c에서
+             heading 태그(h1~h6)를 내용에 사용할 것을 권고
+              - 안써도 무관)
+
+              [ span 요소 : (span-범위)]
+              - 아무런 특징이 없는 인라인 
+              - 인라인 컨텐츠를 구분하여 구조화함
 
             ******************************************************************************************
 
@@ -310,6 +366,13 @@
             - 속성설정 방법 
                 속성명:값;
             -> 이런 방법을 인라인 CSS라고 함
+
+            [ title 속성 ]
+            - 툴팁을 나오게 하는 속성
+            - 값으로 메시지를 넣으면 마우스 오버시
+            툴팁으로 메시지가 보인다
+            - 어떤 요소에도 필요하면 사용가능
+
 
             [ image 요소 ] 
             - 이미지를 넣어주는 요소
