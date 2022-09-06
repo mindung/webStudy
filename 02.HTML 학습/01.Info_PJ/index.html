@@ -4,6 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title> 네이버 요약 뉴스</title>
+
+    <!-- 구글웹폰트 불러오기(CDN) -->
+
+
     <!-- 스타일시트 인터널 방식 -->
     <style>
         /* 스타일시트를 사용하는 영역*/
@@ -178,14 +182,31 @@
         header {
             height: 150px;
             text-align: center;
-            
+
             /* 글자 중앙 tac */
         }
+
+        /* 타이틀 */
+        header h1 {
+            font-size: 40px;
+            /* fz */
+            font-weight: normal;
+            font-family: 'Black And White Picture', sans-serif;
+            color: rgb(18, 183, 49);
+            letter-spacing: 3px;
+            /* 글자줄간격 lh */
+            line-height: 1;
+            /* 글자단어간격 ws */
+            word-spacing: 10px;
+            /* font-family: sans-serif, "굴림,""궁서"; */
+        }
+
 
         /* 메인영역 이미지 */
         main img {
             width: 100%;
         }
+
         /* 하단 영역 */
         footer.info {
             text-align: center;
