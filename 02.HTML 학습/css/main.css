@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* Info Pj 메인 CSS- main.css */
+
+/* 박스공통 */
+.part {
+    width: 750px;
+    border: 2px solid rgb(4, 77, 1);
+    /*두께 종류 색상*/
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 15px;
+    /* 테두리 둥글게 */
+    /* 마진 : 위아래 양쪽
+            양쪽을 auto로 주면 블록박스가 중앙으로 
+            margin : 0 auto 주는 경우 많아 마영오라 불림
+            */
+
+    box-sizing: border-box;
+}
+
+/*상단영역*/
+header {
+    height: 180px;
+    text-align: center;
+    background: rgb(221, 255, 218);
+    /* 글자 중앙 tac */
+
+    /* 둥근 테두리 */
+
+}
+
+/* 타이틀 */
+header h1 {
+    font-size: 50px;
+    /* fz */
+    /* font-weight: normal; */
+    font-family: '바탕', sans-serif;
+    color: rgb(18, 183, 49);
+    letter-spacing: 3px;
+    /* 글자줄간격 lh */
+    line-height: 50px;
+    /* 글자단어간격 ws */
+    word-spacing: 10px;
+    /* font-family: sans-serif, "굴림,""궁서"; */
+}
+
+
+.info span {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    /* 글자 데코 종류 */
+}
+
+/* 메뉴 GNB */
+#gnb>a {
+    /* a 요소는 2가지 기본 설정이 있다 (글자색, 밑줄) */
+
+    color: navy;
+    text-decoration: none;
+    /* 밑줄 없앰 */
+    /* font: 스타일 두께 크기/줄간격 글자체 */
+    /* font: 수투크/줄체 */
+    font: bold 20px/40px '돋움';
+    margin: 0 4px;
+}
+
+/* 마우스 오버시시 */
+/* hover 가상클래스 */
+/* a+a 앞에 a가 있는 형제 a요소 */
+
+
+#gnb>a+a:hover {
+    color: hotpink;
+    text-decoration: underline;
+    /* 외각선 표시  */
+    outline: 1px solid red;
+}
+
+/* 로고 링크 */
+#gnb img {
+    width: 30px !important;
+    /* 인라인 보다 최우선인 important 사용
+            하지만 주의하여 사용, JS 코드가 안 먹힐 수 있음 */
+
+    /* 이미지 옆 인라인 요소 세로 방향 위치 정렬 va*/
+    vertical-align: -8px;
+    margin-right: -10px;
+}
+
+
+/* 메인영역 이미지 */
+main img {
+    width: 100%;
+}
+
+/* 하단 영역 */
+footer.info {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(237, 237, 237);
+
+}
+
+/* 주소요소 */
+address {
+    font-style: normal;
+    font-family: '굴림';
+    font-size: 14px;
+    /* 폰트 스타일 */
+}
