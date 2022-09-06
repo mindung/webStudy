@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title> 네이버 요약 뉴스</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
     <!-- 구글웹폰트 불러오기(CDN) -->
-
-
+    
     <!-- 스타일시트 인터널 방식 -->
     <style>
         /* 스타일시트를 사용하는 영역*/
@@ -59,6 +58,9 @@
             -> 두께 - 경계선
             -> 종류  solid(선형), dashed(데쉬형), datted(점선형),
                     ridge(액자형), double(이중선형)
+                    
+                (참고 : outline : 두께 종류 색상 -> 박스모델 구성요소가 아님
+                그러나 외각선만 표시할 경우 많이 사용 : 주변 영향 X)
             5. margin : 바깥여백
 
             [ 여백 방향별 설정 : padding | margin]
@@ -70,14 +72,23 @@
             padding: 한개 두개 세개 (위 양쪽 아래)
             padding : 한개 두개 세개 네개 (4방향 모두 따로)
 
-            ---------------------------------------------------
+            _____________________________________________________
             
             margin : 한개(4방향공통)
             margin: 한개 두개(위아래 양쪽)
             margin: 한개 두개 세개 (위 양쪽 아래)
             margin : 한개 두개 세개 네개 (4방향 모두 따로)
 
-            -------------------------------------------------------
+            _____________________________________________________
+            
+            [ 박스의 크기 설정시 패딩과 보더와의 관계]
+            1. 크기 설정없이 auto인 상태 : 패딩과 보더가 안쪽 포함
+            2. width, height 크기를 줄 경우 패딩과 보더는 바깥으로 나감
+            (박스가 설정된 크기보다 커짐!!! -> 컨텐트 박스 content-box)
+            
+
+            _____________________________________________________
+            
 
             [ 글자 관련 속성 ]
             
@@ -188,19 +199,42 @@
 
         /* 타이틀 */
         header h1 {
-            font-size: 40px;
+            font-size: 50px;
             /* fz */
             font-weight: normal;
-            font-family: 'Black And White Picture', sans-serif;
+            font-family: '바탕', sans-serif;
             color: rgb(18, 183, 49);
             letter-spacing: 3px;
             /* 글자줄간격 lh */
-            line-height: 1;
+            line-height: 50px;
             /* 글자단어간격 ws */
             word-spacing: 10px;
             /* font-family: sans-serif, "굴림,""궁서"; */
         }
 
+
+        /* 메뉴 GNB */
+        #gnb>a {
+            /* a 요소는 2가지 기본 설정이 있다 (글자색, 밑줄) */
+
+            color: navy;
+            text-decoration: none; /* 밑줄 없앰 */
+            /* font: 스타일 두께 크기/줄간격 글자체 */
+            /* font: 수투크/줄체 */
+           font: bold 20px/40px '돋움';
+           margin: 0 4px;
+        }
+        
+        /* 마우스 오버시시 */
+        /* hover 가상클래스 */
+        /* a+a 앞에 a가 있는 형제 a요소 */
+
+        #gnb>a+a:hover{
+            color: hotpink;
+            text-decoration: underline;
+            /* 외각선 표시  */
+            outline: 1px solid red;
+        }
 
         /* 메인영역 이미지 */
         main img {
@@ -226,10 +260,10 @@
             <a href="#">
                 <img src="./images/naverlogo.png" alt="네이버로고" style="width: 30px;">
             </a>
-            <a href="#">정치</a>
-            <a href="#">경제</a>
-            <a href="#">사회</a>
-            <a href="#">IT/과학</a>
+            <a href="#">정치</a>  |
+            <a href="#">경제</a>  |
+            <a href="#">사회</a>  |
+            <a href="#">IT/과학</a> | 
             <a href="#">TV/연예</a>
         </div>
 
