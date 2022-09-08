@@ -263,7 +263,7 @@
 .main a:hover{
     color: orangered;
     /* 글자 그림자 */
-    text-shadow: 0.5px 0.5px 0.5px black;
+    text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.242);
     /* text-shadow: x축 y축 블러 경계 흐림; */
 }
 
@@ -298,6 +298,17 @@
     margin-top: 30px;
     padding-left: 19px;
     font-size: 22px;
+    text-shadow: 0.5px 0.5px 1px rgb(255, 255, 255);
+}
+
+.secnews dt:first-of-type{
+    color: lightcoral;
+}
+.secnews dt:nth-of-type(2){
+    color: lightskyblue;
+}
+.secnews dt:last-of-type{
+    color: lightseagreen;
 }
 
 /* dt 순서별 글자색 변경 */
