@@ -111,15 +111,16 @@
 }
 
 /* i요소 변경 */
-.arti i{
+.arti i {
     font-style: normal;
     /* 글자 두껍게 */
     font-weight: bold;
 
 }
+
 /* q요소 변경 */
 
-.arti q{
+.arti q {
     color: darkcyan;
     font-weight: bold;
     /* font-weight: 300; */
@@ -127,12 +128,12 @@
 
 /* Del 요소 변경 */
 
-.arti del{
+.arti del {
     color: lightpink;
 }
 
 /* 2-5. 기자정보 */
-.rinfo{
+.rinfo {
     /* 높이 */
     padding: 10px;
     font-style: 14px;
@@ -140,7 +141,7 @@
 
 /* 2-6. 기사원문 */
 
-.org a{
+.org a {
     padding: 10px;
     font-style: 14px;
     color: lightgreen;
@@ -150,21 +151,36 @@
 }
 
 /* 공통박스 article */
-.main article{
+.main article {
     /* 보더위 bdt */
     border-top: 1.5px dashed gray;
     /* 마진위 mt */
-    margin-top:  40px;
+    margin-top: 40px;
     /* 패딩 p */
     padding: 15px;
 }
 
 /* 공통 타이틀 h3 */
-.main h3{
+.main h3 {
     color: blue;
     font-family: 'Black And White Picture', sans-serif;
     font-weight: normal;
     font-size: 26px;
     padding-left: 20px;
+}
 
+/* 블록 인용구 박스 */
+
+.bquote blockquote {
+    /* 마진없앰 */
+    margin: 0;
+    padding: 5px;
+}
+
+/* 블록인용박스 내 이미지 */
+.bquote img{
+    /* 이미지는 왼쪽에, 글자는 오른쪽으로 흘러가게 */
+    float: left;
+    /*  */
+    /*  */
 }
