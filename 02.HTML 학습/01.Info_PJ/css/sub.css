@@ -162,7 +162,7 @@
 
 /* 공통 타이틀 h3 */
 .main h3 {
-    color: blue;
+    color: green;
     font-family: 'Black And White Picture', sans-serif;
     font-weight: normal;
     font-size: 26px;
@@ -186,7 +186,6 @@
 
     /* 들여쓰기 ti */
     text-indent: 20px;
-
     overflow: hidden;
 }
 
@@ -195,7 +194,7 @@
 .bquote img {
     /* 이미지는 왼쪽에, 글자는 오른쪽으로 흘러가게 */
     float: left;
-   
+
 
     /* 컨텐츠가 흘러가게 한다! 
     - 특히 이미지에서 글자를 오른쪽이나 왼쪽으로 흘러가게 
@@ -210,9 +209,21 @@
 
 }
 
+/* 오늘의 작품 & 느낌 */
+
 .work {
     text-align: center;
-    background-color: gray;
+    background-color: lightgoldenrodyellow;
+}
+
+/* 오늘의 작품 cite 요소 */
+.work cite {
+    font-style: normal;
+    /* 글자 휨 조정 */
+    font-size: 20px;
+    font-family: 'Black And White Picture', sans-serif;
+    font-weight: 100;
+    color: orange;
 }
 
 /* 주해박스 */
@@ -227,8 +238,79 @@
 값이 우선하기 때문에 이것 보다 우선하도록 상위 부모를 씀 */
 
 .main small {
-    
     display: block;
     padding: 0 20px;
     /* 패딩 p - 위아래 양쪽 */
 }
+
+/* 메인컨텐츠 아래 a요소 
+주의사항 - 글자색, 밑줄은 반드시 a요소에서 처리할 것  */
+
+.main a {
+    /* 글자색 */
+    color: rgb(134, 126, 126);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Nanum Gothic";
+    line-height: 2.5;
+    /* 줄간격 */
+    letter-spacing: -1x;
+    /* 자간 ls */
+}
+
+/* a요소 마우스 오버시 */
+/* 가상클래스 :hover */
+.main a:hover{
+    color: orangered;
+    /* 글자 그림자 */
+    text-shadow: 0.5px 0.5px 0.5px black;
+    /* text-shadow: x축 y축 블러 경계 흐림; */
+}
+
+/* ul, ol 블릿, 숫자 타입변경 */
+.main ul{
+    /* 블릿 리스트 list */
+    list-style-type: square;
+}
+
+.main ol{
+    list-style-type: upper-roman;
+    /* upper-roman 로마자 대문자
+    순서를 표시하는 종류가 많다. */
+}
+
+/* li 순서별 글자색 변경 */
+
+.main ul li:first-child a {
+    color:red;
+}
+
+.main ul li:nth-child(2) a {
+    color:orange;
+}
+.main ul li:last-child a {
+    color:yellowgreen;
+}
+
+/* 분야별 뉴스 dt */
+.secnews dt {
+    font-family: 'Black And White Picture';
+    margin-top: 30px;
+    padding-left: 19px;
+    font-size: 22px;
+}
+
+/* dt 순서별 글자색 변경 */
+/* 
+    [ 자식요소 순번 선택하기 가상요소 ] 
+    -> 태그가 한종류일 때 (ex : ul>li , ol>li)
+    :first-child 첫번째 자식요소
+    :nth-child(n) n번째 자식요소(n은 1부터)
+    :last-child 마지막 자식요소
+
+    -> 태그가 여러종류일 때 (ex: dl>dt+dd)
+    :first-of-type 첫번째 자식요소
+    :nth-of-type(n) n번째 자식요소
+    :last-of-type 마지막 자식요소
+*/
+
