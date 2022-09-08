@@ -180,7 +180,7 @@
     /* 글자설정*/
     /* font : 스두크/줄체 */
     font: 17px/1.7;
-
+    
     /* 글자정렬 justify 양쪽정렬 */
     text-align: justify;
 
@@ -206,7 +206,7 @@
     /* 둥근 모서리 */
     background-repeat: 5px;
     margin-right: 10px;
-
+    
 }
 
 /* 오늘의 작품 & 느낌 */
