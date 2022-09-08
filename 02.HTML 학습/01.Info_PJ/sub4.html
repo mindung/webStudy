@@ -47,13 +47,15 @@
         <h2 class="atit">[이젠, 우주]심우주 항해 중인 다누리, 안녕하신가요…한 번의 위기와 두 가지 성과</h2>
 
         <!-- 2-3 기사사진(+사진설명) -->
-        <figure class="afig"></figure>
-        <img src="./images/aimg4.jpg" alt="기사사진">
-        <figcaption>
-            <small>
-                우리나라 첫 달 탐사 궤도선 ‘다누리’의 상상도.(사진=한국항공우주연구원)
-            </small>
-        </figcaption>
+        <figure class="afig">
+            <img src="./images/aimg4.jpg" alt="기사사진">
+            <figcaption>
+                <small>
+                    우리나라 첫 달 탐사 궤도선 ‘다누리’의 상상도.(사진=한국항공우주연구원)
+                </small>
+            </figcaption>
+        </figure>
+
         <!--  
 
            [ figure 요소 : 이미지, 표, 도형을 넣는 요소] 
@@ -102,17 +104,17 @@
                 라그랑주점(두 천체의 중력이 균형을 이루는 지점) 중 하나인 L1 포인트(지구로부터 약 156만km)를 거쳐 달로 향하게 된다. 달에 직접 전이하는 최단 거리(약 38만km)보다 누적
                 거리가 15배 정도(약 600만km) 길다.</p>
             <bdo dir="rtl">우리나라대한민국만세!!!</bdo>
-        </section
-        >
+        </section>
+            
         <!-- 블록인용구 박스 -->
         <article class="bquote">
             <h3>달 탐사</h3>
-            <blo    ckquote cite="https://ko.wikipedia.org/wiki/%EB%8B%AC_%ED%83%90%EC%82%AC">
+            <blockquote cite="https://ko.wikipedia.org/wiki/%EB%8B%AC_%ED%83%90%EC%82%AC">
                 <img src="images/moon.jpg" alt="달탐사모습">
                 달 탐사(영어: exploration of the Moon)는 달에 대한 호기심은 인간이 밤하늘을 올려다보던 과거부터 시작되었지만, 물리적인 탐사는 1959년 소련의 루나 2호로
                 시작하였다. 1969년에는 미국의 아폴로 11호가 최초로 유인 달 착륙에 성공하였다. 지금도 탐사선을 통한 달 탐사는 활발히 진행되고 있으며, 일본, 중국, 인도와 같은 신흥 우주개발국의
                 탐사가 두드러지고 있다.
-            </blockquote>
+                </blockquote>
         </article>
 
         <!-- 주해표시박스 -->
@@ -140,6 +142,112 @@
             <a href="https://n.news.naver.com/mnews/article/293/0000040540?sid=105" target="_blank">기사원문</a>
         </h5>
 
+
+        <!-- 오늘의 작품 & 느낌 -->
+        <article class="work">
+            <h3>오늘의 작품 &amp; 느낌</h3>
+            <figure>
+                <img src="./images/img_the_scream.jpg" alt="뭉크의 절규">
+                <figcaption>
+                    뭉크의 <cite>&lt;절규&gt;</cite>
+                </figcaption>
+            </figure>
+        </article>
+        <!-- 
+            [ html 특수문자 처리 ]
+            & 엔퍼센드 &amp;
+            < 여는꺽쇠 &lt;
+            > 닫는꺽쇠 &gt;
+         -->
+
+        <!-- 주요뉴스 (순서없는 리스트 ul) -->
+        <article class="cnews">
+            <h3>블로터 주요뉴스</h3>
+            <ul>
+                <li>
+                    <a href="http://www.bloter.net/newsView/blt202208070001" target="_blank">
+                        '순조 출발' 다누리, 첫 궤적 수정 기동도 "문제없어"
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.bloter.net/newsView/blt202208050015" target="_blank">
+                        '발사 성공' 다누리, 韓 우주 원년 열리나…변수는 'BLT'
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.bloter.net/newsView/blt202208050004" target="_blank">
+                        4.5개월 항해 시작한 다누리, 문제없이 '우주로'…첫 교신도 성공
+                    </a>
+                </li>
+            </ul>
+        </article>
+
+        <!-- 랭킹뉴스 (순서있는리스트 ol) -->
+        <article class="rank">
+            <h3>블로터 랭킹뉴스</h3>
+            <ol>
+                <li>
+                    <a href="https://n.news.naver.com/mnews/ranking/article/293/0000040572?ntype=RANKING"
+                        target="_blank">
+                        이재용 부회장, 회장 승진·대통령특사보다 '이사회 복귀'가 먼저
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/mnews/ranking/article/293/0000040577?ntype=RANKING"
+                        target="_blank">
+                        통신사 SKB는 왜 워크OS '스윗'에 투자했나
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/mnews/ranking/article/293/0000040574?ntype=RANKING"
+                        target="_blank">
+                        70조원 규모 美 ‘반도체법’ 세부사항 공개…"中 투자시 지원금 회수"
+                    </a>
+                </li>
+            </ol>
+        </article>
+
+        <!-- 분야별뉴스 (용어정의리스트 dl) -->
+        <article class="secnews">
+            <h3>분야별뉴스</h3>
+            <dl>
+                <dt>경제</dt>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/366/0000839325?sid=101" target="_blank">
+                        삼성에 甲질한 브로드컴, 자진시정...공정위 동의의결 개시
+                    </a>
+                </dd>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/009/0005014356?sid=101" target="_blank">
+                        佛 970억달러·日 645억달러 적자…에너지 수입국, 타격 더 컸다
+                    </a>
+                </dd>
+
+                <dt>사회</dt>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/005/0001551639?sid=102" target="_blank">
+                        공무원은 ‘근로자의날’ 휴무 제외…헌재 “평등권 침해 아냐”
+                    </a>
+                </dd>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/028/0002605513?sid=102" target="_blank">
+                        하청 3명만 실형…광주 학동 사고 유족들 “현산 봐주기 판결”
+                    </a>
+                </dd>
+
+                <dt>TV/연예</dt>
+                <dd>
+                    <a href="https://entertain.naver.com/ranking/read?oid=468&aid=0000880669" target="_blank">
+                        '안면마비' 저스틴 비버, 결국 월드투어 전면 취소[할리웃톡]
+                    </a>
+                </dd>
+                <dd>
+                    <a href="https://entertain.naver.com/ranking/read?oid=076&aid=0003913461" target="_blank">
+                        '열애설' 뷔·제니, 뉴욕 일정 바쁘다더니..이번엔 '노을 데이트' 노출?[종합]
+                    </a>
+                </dd>
+            </dl>
+        </article>
 
         <!-- 사진뉴스 ( 테이블 table ) -->
 
@@ -196,6 +304,8 @@
 
 
     </main>
+
+
 
     <!-- 3.하단 영역 -->
     <footer class="part info">

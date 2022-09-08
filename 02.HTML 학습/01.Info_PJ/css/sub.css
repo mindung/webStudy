@@ -76,8 +76,8 @@
 .afig small {
     /* 글자체 ff */
     font-family: "굴림";
-    color: #888;
-    /* text-align: center; */
+    color: darkgray;
+    text-align: center;
 }
 
 /* 2-4. 기사내용 */
@@ -175,12 +175,60 @@
     /* 마진없앰 */
     margin: 0;
     padding: 5px;
+    /* float 설정으로 망가진 부모박스는 overflow:hidden으로 막아준다.(자식의 크기) */
+
+    /* 글자설정*/
+    /* font : 스두크/줄체 */
+    font: 17px/1.7;
+
+    /* 글자정렬 justify 양쪽정렬 */
+    text-align: justify;
+
+    /* 들여쓰기 ti */
+    text-indent: 20px;
+
+    overflow: hidden;
 }
 
+
 /* 블록인용박스 내 이미지 */
-.bquote img{
+.bquote img {
     /* 이미지는 왼쪽에, 글자는 오른쪽으로 흘러가게 */
     float: left;
-    /*  */
-    /*  */
+   
+
+    /* 컨텐츠가 흘러가게 한다! 
+    - 특히 이미지에서 글자를 오른쪽이나 왼쪽으로 흘러가게 
+    - 기본적으로 이미지하단에 한줄만 글자가 흘러가게 되어있음.
+    블록에서 float은 별도로 다름
+    -> 값에 따라 left - 나는 왼쪽 다른건 오른쪽
+    
+    */
+    /* 둥근 모서리 */
+    background-repeat: 5px;
+    margin-right: 10px;
+
+}
+
+.work {
+    text-align: center;
+    background-color: gray;
+}
+
+/* 주해박스 */
+.main .desc {
+    border-bottom: 2px dashed #CCC;
+    padding-bottom: 10px;
+}
+
+/* 주해박스 small 요소*/
+/* .desc 앞에 .main 부모를 쓴 이유
+기존 세팅, main article 에서 설정한 
+값이 우선하기 때문에 이것 보다 우선하도록 상위 부모를 씀 */
+
+.main small {
+    
+    display: block;
+    padding: 0 20px;
+    /* 패딩 p - 위아래 양쪽 */
 }

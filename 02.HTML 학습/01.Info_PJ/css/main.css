@@ -91,7 +91,7 @@ header h1 {
 
 
 /* 메인영역 이미지 */
-main img {
+.pmain img {
     width: 100%;
 }
 
