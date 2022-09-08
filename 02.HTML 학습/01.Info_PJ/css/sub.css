@@ -260,7 +260,7 @@
 
 /* a요소 마우스 오버시 */
 /* 가상클래스 :hover */
-.main a:hover{
+.main a:hover {
     color: orangered;
     /* 글자 그림자 */
     text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.242);
@@ -268,12 +268,12 @@
 }
 
 /* ul, ol 블릿, 숫자 타입변경 */
-.main ul{
+.main ul {
     /* 블릿 리스트 list */
     list-style-type: square;
 }
 
-.main ol{
+.main ol {
     list-style-type: upper-roman;
     /* upper-roman 로마자 대문자
     순서를 표시하는 종류가 많다. */
@@ -282,14 +282,15 @@
 /* li 순서별 글자색 변경 */
 
 .main ul li:first-child a {
-    color:red;
+    color: red;
 }
 
 .main ul li:nth-child(2) a {
-    color:orange;
+    color: orange;
 }
+
 .main ul li:last-child a {
-    color:yellowgreen;
+    color: yellowgreen;
 }
 
 /* 분야별 뉴스 dt */
@@ -299,15 +300,23 @@
     padding-left: 19px;
     font-size: 22px;
     text-shadow: 0.5px 0.5px 1px rgb(255, 255, 255);
+    border: 3px dotted darkkhaki;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 50%;
+    /* 둥근 모서리 */
+    /* width: 70px; */
 }
 
-.secnews dt:first-of-type{
+.secnews dt:first-of-type {
     color: lightcoral;
 }
-.secnews dt:nth-of-type(2){
+
+.secnews dt:nth-of-type(2) {
     color: lightskyblue;
 }
-.secnews dt:last-of-type{
+
+.secnews dt:last-of-type {
     color: lightseagreen;
 }
 
@@ -324,4 +333,27 @@
     :nth-of-type(n) n번째 자식요소
     :last-of-type 마지막 자식요소
 */
+
+/* 사진뉴스 박스 */
+.pnews table {
+    /* 마영오 - 블럭요소, 테이블 중앙 정렬 */
+    margin: 0 auto;
+}
+
+/* 첫번째 dt - 숫자부분 */
+
+.pnews td:first-child{
+    width: 50px;
+    height: 70px;
+    background-color: gray;
+    text-align: center;
+}
+
+.pnews td:nth-child(2){
+    width: 500px;
+    height: 70px;
+    background-color: #CCC;
+    color: black;
+}
+
 
