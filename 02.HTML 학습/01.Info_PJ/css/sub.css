@@ -16,24 +16,27 @@
 @import url(common.css);
 
 /* 메인영역박스 */
-.main{
+.main {
     /* 패딩 p15 */
     padding: 15px;
 }
 
 /* 2-1. 언론사로고 */
-.prlogo img{
+.prlogo img {
     /* 높이값 h32 */
     height: 32px;
+    width: 80px;
+
 }
+
 /* 2-2. 기사제목 */
-.atit{
+.atit {
     /* 글자크기 fz30 */
     font-size: 30px;
     /* 글자두께 보통 fwn */
     font-weight: normal;
     /* 글자체 ff */
-    font-family: "굴림","궁서",sans-serif;
+    font-family: "굴림", "궁서", sans-serif;
     /* 자간 ls-2 */
     letter-spacing: -2px;
     /* 단어간격 ws-1 */
@@ -46,8 +49,9 @@
     기본박스는 모두 wrap박스임! */
 
 }
+
 /* 2-3. 기사사진(+사진설명) */
-.afig{
+.afig {
     /* 마진 m */
     margin: 15px 0;
     /* 마진: 위아래 양쪽 */
@@ -55,8 +59,9 @@
     /* 컨텐츠 중앙정렬 tac */
     text-align: center;
 }
+
 /* 기사 이미지 */
-.afig img{
+.afig img {
     /* 최대가로크기 maw100p */
     max-width: 100%;
     /* 이미지에 이설정을 하면
@@ -66,6 +71,100 @@
     /* 가로크기 w100p */
     /* width: 100%; */
 }
+
+/* 기사 이미지 설명글 smaill */
+.afig small {
+    /* 글자체 ff */
+    font-family: "굴림";
+    color: #888;
+    /* text-align: center; */
+}
+
 /* 2-4. 기사내용 */
+.arti p {
+    font-family: "Nanum Gothic", "돋움";
+    font-size: 18px;
+    line-height: 1.5;
+    /* 줄간격 */
+    padding: 0 10px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    /* text-decoration: underline; */
+}
+
+/* 중간 글자표시박스 변경  */
+
+.arti mark {
+    display: block;
+    /* 인라인을 블록으로 전환 */
+    background-color: #CCC;
+    /* 배경색 */
+    text-align: center;
+    line-height: 3;
+    /* 줄간격 */
+    font-family: 바탕;
+    font-size: 20px;
+    font-weight: bold;
+    /* 글자두께 */
+    border-top: 2px solid gray;
+    border-bottom: 2px solid #DDD;
+}
+
+/* i요소 변경 */
+.arti i{
+    font-style: normal;
+    /* 글자 두껍게 */
+    font-weight: bold;
+
+}
+/* q요소 변경 */
+
+.arti q{
+    color: darkcyan;
+    font-weight: bold;
+    /* font-weight: 300; */
+}
+
+/* Del 요소 변경 */
+
+.arti del{
+    color: lightpink;
+}
+
 /* 2-5. 기자정보 */
+.rinfo{
+    /* 높이 */
+    padding: 10px;
+    font-style: 14px;
+}
+
 /* 2-6. 기사원문 */
+
+.org a{
+    padding: 10px;
+    font-style: 14px;
+    color: lightgreen;
+    /* 밑줄 없애기 */
+    text-decoration: none;
+    border: 1px dashed lightslategrey;
+}
+
+/* 공통박스 article */
+.main article{
+    /* 보더위 bdt */
+    border-top: 1.5px dashed gray;
+    /* 마진위 mt */
+    margin-top:  40px;
+    /* 패딩 p */
+    padding: 15px;
+}
+
+/* 공통 타이틀 h3 */
+.main h3{
+    color: blue;
+    font-family: 'Black And White Picture', sans-serif;
+    font-weight: normal;
+    font-size: 26px;
+    padding-left: 20px;
+
+}
