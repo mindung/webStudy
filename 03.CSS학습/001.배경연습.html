@@ -4,7 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <title>001.배경연습</title>
-    <style></style>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 기본 높이값이 auto 즉, 내용만큼 늘어남
+            보이는 화면에 기준하여 높이 채움 */
+            /* body에 부모 - html
+               html에 부모 - window 즉 보이는 화면 */
+        }
+
+        h1 {
+            margin: 0;
+            /* body의 자식요소인 블록요소 h1에 
+            기본 마진값이 body 바깥으로 나감
+            body의 자식 요소 블록은 그 윗마진, 아랫마진
+            부모박스의 바깥으로 나감-> 기본 특성
+            나가지 않게 하려면 마진 X (대신 패딩씀) 또는 
+            부모박스에 overflow:hiden씀     */
+        }
+
+        body {
+            /* 전체 배경넣기 body에 할 것!
+            html에 하지 마세요거트 
+            */
+
+            /* 1. 배경색 bgc */
+            background-color: pink;
+
+            /* 2. 배경이미지 bgi  - url(경로) */
+            background-image: url(./imgs//bg_logo_a_01.png);
+
+            /* 반복여부: no-repeat/repeat-x/repeat-y/repeat(모두반복) bgr */
+            background-repeat: no-repeat;
+            /* background-repeat: repeat; */
+            /* background-repeat: repeat-x;
+            background-repeat: repeat-y; */
+
+            /* 4. 배경 고정: fixed 스크롤이 있는 경우 
+            배경이 보이는 화면에 고정 된다. bga*/
+            background-attachment: fixed;
+            /* height: 4000px; */
+
+            /* 배경 위치: 가로 세로 
+                값 - px, %, 수치 단위
+                가로 - left, center, right
+                세로 - top, center, bottom
+                bgp */
+
+            /* background-position: right center; */
+            background-position: right bottom;
+            /* 6. 배경크기 : 가로 세로 */
+            /*  auto 값 -> 세로값만 세팅, 가로는 자동
+                값 auto -> 가로값만 세팅, 세로는 자동
+                값을 하나만 쓰면 가로값만 세팅한 것과 같음
+
+                특정쓰기
+                1) contain 모두 보이게 박스에 채움(빈틈0)
+                2)cover 비율을 유지하면서 박스를 채움(빈틈x)
+                -bgz
+             */
+
+            background-size: auto 20%;
+        }
+
+        /* body 아래 박스 */
+        .wrap {
+            height: 100%;
+            /* [배경을 여러개 셋팅하려면 ?] 
+                - 한 번에 배경셋팅법으로 콤마로 구분하여
+                연결하여 여러개 셋팅가능
+
+                background: 색이반고윙/크
+
+                background: 배경색 배경 이미지 반복 고정 위치/크기
+
+
+                /* 주의: 위치를 잡을 필요가 없어도 0이라도 쓰고 
+                슬래쉬 뒤에 값을 써야 그게 배경 크기임!*/
+
+            background: 
+                url(./imgs/dc1.png) no-repeat center/ 400px,
+                url(./imgs/dc2.png) no-repeat right top /auto 150px,
+                url(./imgs/dc3.png) no-repeat left bottom /300px,
+                url(./imgs/dc4.png) no-repeat right/250px,
+                url(./imgs/bg_mainvisual.jpg) no-repeat 0/50%;
+                
+                /* 배경위치 세로값 안 적으면 기본값이 CENTER */
+                /* 배경위치값을 0만쓰면 left center와 동일 */
+                /* 배경위아래 위치는 먼저쓴 게 위에 옴 */
+
+        }
+    </style>
 </head>
 
 <body>
