@@ -118,35 +118,90 @@
         }
 
         /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-
+        dl dt::before {
+            content: '♥';
+            color: blue;
+            font-size: 30px;
+            margin-left: 10px;
+            vertical-align: 1px;
+        }
 
         /* dd전체와 
         dd.story>h3에 가상요소 before적용하기 */
-
-
+        dl dd::before,
+        dd.story>h3::before{
+            content: '😍';
+            font-size: 20px;
+            margin-left: 5px;
+            vertical-align: 2px;
+        }
+        
         /* 출연배우의 dd부터 아이콘변경 */
-
+        dl dd:nth-of-type(5)~dd::before{
+            content: '😎';
+            font-size: 20px;
+            margin-left: 5px;
+            vertical-align: 2px;
+        }
         /* 아티스트의 dd부터 아이콘변경 */
-
+        dl dd:nth-of-type(10)~dd::before{
+            content: '🎤';
+            font-size: 20px;
+            margin-left: 5px;
+            vertical-align: 2px;
+        }
 
         /* 스토리의 dd는 가상요소 없애기 */
+        dd.story::before{
+            display: none;
+        }
 
+        /* 스토리의 dd 아래 h3 이모지 변경 */
+        dd.story>h3::before{
+            content: '✨';
+            font-size: 30px;
+
+        }
 
         /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-
-
-
+        dd.story p:last-of-type b{
+            font-size: 50px;
+            color: hotpink;
+        }
+        
+        dd.story p:last-of-type span{
+            color: skyblue;
+        }
+        
+        
         /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
+        
+        dd.story p::first-letter{
+            font-size: 50px;
+            font-weight: bold;
+            color: hotpink;
+        }
 
-
-
+        dl dt{
+            font-size: 24px;
+            font-family: "굴림";
+        }
 
         /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
-
-
+        dd.story p::first-line{
+            color: skyblue;
+        }
+        
         /* 기타 가상요소 ::selection */
         /* 드래그 선택시 글자색 배경색 설정변경! */
+        ::selection{
+             color: white;
+             background: red;
+        }
+        /* ::selection만 쓰면 전체가 다 적용됨
+        특정선택자::seletion 으로 쓰면 태그로 
+        싸지 않은 글자만 적용됨 */
     </style>
 </head>
 
