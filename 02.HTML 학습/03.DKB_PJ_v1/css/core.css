@@ -13,3 +13,12 @@
 body {
     font-family: 'Nanum Gothic', sans-serif;
 }
+
+.ibx{
+    max-width: 1200px;
+    /*  최대가로크기 1200px이면
+        싸고 있는 박스가 이것보다 작아질 경우
+        AUTO로 자동전환되어 가로스크롤이 안생김!
+        */
+    margin: 0 auto;
+}
