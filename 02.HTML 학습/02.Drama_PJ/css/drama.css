@@ -1,2 +1,145 @@
 @charset "utf-8";
 /* 한국최신드라마 리스트 CSS - drama.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;400&display=swap');
+/*  */
+
+/* 초기화 */
+html,body{
+    margin: 0;
+    padding: 0;
+}
+/* 테이블 공통 */
+.tbl{
+    /* 글자체 (웹폰트) ff */
+    font-family: 'Hahmlet', serif;
+    /* 글자색 c */
+    color: #222;
+    /* 테이블 기본 사이간극 없애기 */
+    border-collapse: collapse;
+}
+
+/* 드라마 리스트 테이블 */
+#drama{
+    /* 글자크기 fz */
+    font-size: 24px;
+    /* 블록or테이블 가로중앙정렬 - 마.영.오! */
+    margin: 0 auto;
+    /* 가로크기 w */
+    width: 1000px;
+    /* 테이블 width지정이 없으면 내용만큼 늘어남!
+    좁으면 아래로 내용이 줄바꿈됨 */
+}
+/* 테이블 제목 */
+#drama caption{
+    /* 글자크기 fz */
+    font-size: 35px;
+    /* 글자두껍게 fwb */
+    font-weight: bold;
+    /* 자간 ls */
+    letter-spacing: 5px;
+    /* 패딩 p */
+    padding: 50px 0 20px;
+    /* 위 양쪽 아래 */
+}
+/* td와 th 패딩 */
+#drama td,
+#drama th{
+    padding: 8px 10px;
+    /* 위아래 양쪽 */
+}
+
+
+/* dt에 밑줄 넣기
+- 테이블 본문에만 */
+#drama tbody td{
+    /* 보더아래 bdb */
+    border-bottom: 1px solid #CCC;
+}
+
+/* th에 윗줄, 아랫줄 두꺼운 보더 넣기 */
+
+#drama th{
+    /* 보더위 bdt */
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+
+#drama tbody tr:last-child td{
+    border-bottom: 2px solid #555;
+}
+
+/* 본문 (tbody)의 짝수번째 tr의 td배경색 넣기 
+nth-child(순번) -> odd(홀수), even(짝수)
+*/
+
+#drama tbody tr:nth-child(even) td{
+    background-color: rgb(232, 230, 230);
+}
+
+/* 본문(tbody)의 첫번째 td(번호항목) 중앙정렬 tr:first-child*/
+#drama tbody  td{
+    text-align: center;
+}
+
+#drama tfoot td{
+    text-align: center;
+    padding: 45px 0;
+}
+
+/* 드라마면 링크처리 */
+#drama tbody a{
+    color: #222;
+    text-decoration: none;
+}
+
+/* 드라마명 오버시 */
+#drama tbody a:hover{
+    color: hotpink;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+
+/* 하단 페이징  링크처리 */
+#drama tfoot a{
+    color: #222;
+    text-decoration: none;
+}
+
+/* 드라마명 오버시 */
+#drama tfoot a:hover{
+    color: blue;
+}
+
+div.gubun{
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    /* float으로 망가짐 방지 */
+    overflow: hidden; 
+}
+
+/* 구분테이블 */
+table#gubun{
+    font-size: 20px;
+    border: 1px solid #999;
+    /* 오른쪽 끝으로 */
+    float: right
+    ;
+}
+
+/* 구분테이블 td*/
+#gubun td{
+    padding: 10px;
+}
+
+/* 구분 테이블 첫번째 tf의 첫번째 td의 오른쪽 점선 넣기 */
+#gubun tr:first-child td:first-child{
+    border-right: 1px dotted #000;
+}
+
+/* 구분테이블 두번째 tf부터 마지막 tf까지 즉, 앞에 tf이 있는 tf형제요소만 선택하여 윗쪽보터 상단 넣기 */
+#gubun tr+tr td{
+    border-top: 1px dotted #000;
+}
