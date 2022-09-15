@@ -2,13 +2,19 @@
 /* 도깨비 PJ 공통클래스/웹폰트 CSS - core.css */
 
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Single+Day&family=Yeon+Sung&family=ZCOOL+QingKe+HuangYou&family=Nanum+Gothic&display=swap');
-/* 
-    font-family: 'Single Day', cursive;
-    font-family: 'Yeon Sung', cursive;
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
-    font-family: 'Nanum Gothic', sans-serif;
-*/
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nanum+Gothic&family=Noto+Serif+KR&family=ZCOOL+KuaiLe&display=swap');
+
+    /* 1. 캐릭터 설명 제목체 
+    font-family: 'East Sea Dokdo', cursive;
+
+    2. 캐릭터 설명 내용체
+    font-family: 'Noto Serif KR', serif;
+    
+    3. 캐릭터 설명 한자체
+    font-family: 'ZCOOL KuaiLe', cursive; 
+
+    4.전체 공통제(메뉴 등)
+    font-family: 'Nanum Gothic', sans-serif; */
 
 body {
     font-family: 'Nanum Gothic', sans-serif;
@@ -21,4 +27,24 @@ body {
         AUTO로 자동전환되어 가로스크롤이 안생김!
         */
     margin: 0 auto;
+}
+
+/* 스크롤바 디자인 클래스 */
+/* webkit - 밴더사명(크롬,사파리) 접두어 */
+/* ex: -ms-(ie), -o-(오페라), -moz */
+
+.scbar::-webkit-scrollbar{
+    width: 12px;
+}
+
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바  */
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바  */
+    background-color: #ddd;
+    border-radius: 5px;
 }
