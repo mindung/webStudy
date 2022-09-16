@@ -1,0 +1,2 @@
+1. 포지션 absolute, static 
+2. 태그 연습
