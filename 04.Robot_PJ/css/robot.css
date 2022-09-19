@@ -181,10 +181,20 @@ body {
     /* background-color: yellow; */
 
     /* 원형 그라데이션*/
-    radial-gradient(circle,pink, skyblue, lightgreen)
-
+    /* radial-gradient(circle,pink, skyblue, lightgreen) */
+    radial-gradient(closest-side at 20px 20px, white, pink);
 
 }
+/* 왼쪽가상요소 위치 */
+.arm.a1::before{
+    left: -10px;
+}
+
+/* 오른쪽가상요소 위치 */
+.arm.a2::before{
+    right: -10px;
+}
+
 
 /* 
 
@@ -218,8 +228,29 @@ body {
         -> 색상뒤에 비율을 안쓰면 등분할 됨
 
         */
+
         
-        /* 왼팔 */
+/* 가상요소로 손 그림자주기 */
+.arm::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    width: 20px;
+    height: 40px;
+    background: #000;
+}
+.arm.a1::after{
+    border-radius: 4px;
+    left: 12px;
+}
+.arm.a2::after{
+    border-radius: 4px;
+    right: 12px;
+}
+
+
+/* 왼팔 */
 .a1{
     left: -60px;
 }
