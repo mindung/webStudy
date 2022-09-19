@@ -143,6 +143,20 @@ body {
     margin-top: 50px; /* 마진 상단 */
 }
 
+/* 가상요소로 몸 박스 하단처리 */
+.body::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left:-2%;
+    width: 104%;
+    height: 30px;
+    /* 선형그라데이션 */
+    background-image: linear-gradient(aqua, skyblue);
+
+}
+
 /* 목 */
 .neck{
     position: absolute;
@@ -239,6 +253,16 @@ body {
     width: 20px;
     height: 40px;
     background: #000;
+
+    /* 클리핑 기법을 사용하여 그림자를 삼각형으로 만들자
+    -> 다각형 클리핑
+    clip-path : polygon(x1 y1, x2 y2)
+    -> 소괄호 비울 수 없다.
+    -> 각 좌표는 x,y 좌표 하나는 띄어쓰기로
+    다른 좌표는 콤마로 구분
+    */
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+
 }
 .arm.a1::after{
     border-radius: 4px;
@@ -268,6 +292,28 @@ body {
     /* 부모높이값 만큼 100% 밀기 */
     top: 100%;
 }
+
+/* 가상요소로 발 만들기 */
+
+.leg::after{
+    content: '';
+    display: block;
+    bottom: -30px;
+    position: absolute;
+    bottom: -30px;
+    left: -6px;
+    width: 80px;
+    height: 40px;
+     background-color: #fff;
+    /* 둥근모서리 윗쪽만 */
+    border-radius:  30px 30px 0 0;
+    border: 1px solid #CCC;
+    border-bottom: 20px solid #000;
+    background-image: 
+    radial-gradient(farthest-side at 20px 10px, #fff, #333);
+    background-color: #fff;
+
+}
 /* 왼다리 */
 
 .l1{
@@ -295,4 +341,27 @@ body {
 .s2{
     right: -80px;
     border-radius: 0 50px 50px 0 ;
+}
+
+
+/* ㅅtv */
+.tv{
+    position: absolute;
+    width: 200px;
+    height: 126px;
+    left: 10px;
+    top: 55px;
+    background: url(../images/tv.jpg) no-repeat 0/100%;
+    border: 10px ridge lightskyblue;
+}
+
+/* 스크린 */
+.screen{
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    width: 134px;
+    height: 97px;
+    background: red;
+    border-radius: 10px;
 }
