@@ -1,9 +1,14 @@
 @charset "utf-8";
 /* 로봇 PJ CSS - robot.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Miltonian+Tattoo&family=Passion+One&family=Playfair+Display&display=swap');
+/* font-family: 'Black Ops One', cursive;
+font-family: 'Miltonian Tattoo', cursive;
+font-family: 'Passion One', cursive;
+font-family: 'Playfair Display', serif; */
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed lime;
+    /* outline: 2px dashed lime; */
 }
 
 /* 초기화 */
@@ -36,6 +41,16 @@ body {
 /* 메탈소재` 배경2*/
 .mt2 {
     background: url(../images/metal02.jpg) no-repeat center/cover;
+}
+
+/* 빛이나는 로고 */
+
+.brRo,
+.brRo::after,
+.brRo::before {
+    /* 박스 그림자: x,y, blur spread 색 */
+    box-shadow: 0 0 10px 5px cyan
+        /* 박스 그림자를 밝은색으로 주면 빛나는 효과 */
 }
 
 /* 2-1 로봇박스  */
@@ -104,7 +119,7 @@ body {
     height: 80px;
     /* 둥근 모서리 */
     border-radius: 30px;
-    clip-path: polygon(36% 10%,69% 10%,80% 60%,94% 70%,86% 90%,18% 90%,8% 74%,20% 60%);
+    clip-path: polygon(32% 10%, 55% -1%, 82% 66%, 86% 76%, 78% 90%, 18% 92%, 8% 72%, 23% 56%)
 }
 
 /* 입 */
@@ -136,21 +151,23 @@ body {
 }
 
 /* <!-- 2-1-2. 로봇몸통 --> */
-.body{
-    position: relative; /* 부모자격 : 앱솔루투 */
+.body {
+    position: relative;
+    /* 부모자격 : 앱솔루투 */
     width: 250px;
     height: 310px;
     margin: 0 auto;
-    margin-top: 50px; /* 마진 상단 */
+    margin-top: 50px;
+    /* 마진 상단 */
 }
 
 /* 가상요소로 몸 박스 하단처리 */
-.body::after{
+.body::after {
     content: '';
     display: block;
     position: absolute;
     bottom: 0;
-    left:-2%;
+    left: -2%;
     width: 104%;
     height: 30px;
     /* 선형그라데이션 */
@@ -159,7 +176,7 @@ body {
 }
 
 /* 목 */
-.neck{
+.neck {
     position: absolute;
     top: -50px;
     left: 100px;
@@ -168,7 +185,7 @@ body {
 }
 
 /* 팔 */
-.arm{
+.arm {
     position: absolute;
     width: 50px;
     height: 250px;
@@ -178,35 +195,38 @@ body {
 }
 
 /* 가상요소로 손만들기 */
-.arm::before{
-    position: absolute; /* 포지션 앱솔루트 */
+.arm::before {
+    position: absolute;
+    /* 포지션 앱솔루트 */
     content: '';
-    display: block; /* 이것을 쓰는 순간 div와 같아짐 블록 요소 */
+    display: block;
+    /* 이것을 쓰는 순간 div와 같아짐 블록 요소 */
     width: 70px;
     height: 70px;
     bottom: -25px;
     border-radius: 50%;
-    
+
     /* 선형 그라데이션bgi : li*/
     background-image:
-     /* linear-gradient(pink, skyblue); */
-     /* linear-gradient(to right, pink, skyblue); */
-     /* linear-gradient(to top, pink 3%, skyblue 50%, lightgreen); */
-     /* linear-gradient(45deg, pink, skyblue , lightgreen); */
-    /* background-color: yellow; */
+        /* linear-gradient(pink, skyblue); */
+        /* linear-gradient(to right, pink, skyblue); */
+        /* linear-gradient(to top, pink 3%, skyblue 50%, lightgreen); */
+        /* linear-gradient(45deg, pink, skyblue , lightgreen); */
+        /* background-color: yellow; */
 
-    /* 원형 그라데이션*/
-    /* radial-gradient(circle,pink, skyblue, lightgreen) */
-    radial-gradient(closest-side at 20px 20px, white, pink);
+        /* 원형 그라데이션*/
+        /* radial-gradient(circle,pink, skyblue, lightgreen) */
+        radial-gradient(closest-side at 20px 20px, white, pink);
 
 }
+
 /* 왼쪽가상요소 위치 */
-.arm.a1::before{
+.arm.a1::before {
     left: -10px;
 }
 
 /* 오른쪽가상요소 위치 */
-.arm.a2::before{
+.arm.a2::before {
     right: -10px;
 }
 
@@ -244,9 +264,9 @@ body {
 
         */
 
-        
+
 /* 가상요소로 손 그림자주기 */
-.arm::after{
+.arm::after {
     content: '';
     display: block;
     position: absolute;
@@ -265,26 +285,29 @@ body {
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 
 }
-.arm.a1::after{
+
+.arm.a1::after {
     border-radius: 4px;
     left: 12px;
 }
-.arm.a2::after{
+
+.arm.a2::after {
     border-radius: 4px;
     right: 12px;
 }
 
 
 /* 왼팔 */
-.a1{
+.a1 {
     left: -60px;
 }
+
 /* 왼팔 */
-.a2{
+.a2 {
     right: -60px;
 }
 
-.leg{
+.leg {
     position: absolute;
     width: 70px;
     height: 300px;
@@ -296,7 +319,7 @@ body {
 
 /* 가상요소로 발 만들기 */
 
-.leg::after{
+.leg::after {
     content: '';
     display: block;
     bottom: -30px;
@@ -305,48 +328,51 @@ body {
     left: -6px;
     width: 80px;
     height: 40px;
-     background-color: #fff;
+    background-color: #fff;
     /* 둥근모서리 윗쪽만 */
-    border-radius:  30px 30px 0 0;
+    border-radius: 30px 30px 0 0;
     border: 1px solid #CCC;
     border-bottom: 20px solid #000;
-    background-image: 
-    radial-gradient(farthest-side at 20px 10px, #fff, #333);
+    background-image:
+        radial-gradient(farthest-side at 20px 10px, #fff, #333);
     background-color: #fff;
 
 }
+
 /* 왼다리 */
 
-.l1{
+.l1 {
     /* bottom: -100px; */
-    left: 0;    
+    left: 0;
 }
 
-.l2{
-    right: 0;    
+.l2 {
+    right: 0;
 }
 
 /* 어깨 공통 */
-.shd{
+.shd {
     position: absolute;
     top: -20px;
     width: 90px;
     height: 80px;
 }
+
 /* 왼어깨 */
-.s1{
+.s1 {
     left: -80px;
     border-radius: 50px 0 0 50px;
 }
+
 /* 오른어깨 */
-.s2{
+.s2 {
     right: -80px;
-    border-radius: 0 50px 50px 0 ;
+    border-radius: 0 50px 50px 0;
 }
 
 
 /* ㅅtv */
-.tv{
+.tv {
     position: absolute;
     width: 200px;
     height: 126px;
@@ -358,7 +384,7 @@ body {
 }
 
 /* 스크린 */
-.screen{
+.screen {
     position: absolute;
     top: 4px;
     left: 11px;
@@ -370,13 +396,113 @@ body {
     /* 넘치는 자식요소 숨기기 */
     overflow: hidden;
 }
+
 /* 아이프레임 */
-.screen iframe{
+.screen iframe {
     position: absolute;
     top: -5px;
     left: -28px;
-    width: 143%;
+    width: 140%;
     height: 107%;
     /* 기본보더없앰 */
     border: none;
+}
+
+/***** 2-2 로봇 설명 박스 *****/
+.dcbx {
+    /* 최대가로크기 */
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 200px;
+    background-color: rgba(0, 0, 0, 0.459);
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    padding: 15px 30px;
+    /* 패딩 위아래 양쪽 */
+    /* 경계선 : 보더   두종색*/
+    border: 2px solid #FFF;
+    border-radius: 25px;
+
+    /* 박스그림자
+    -콤마로 연결하면 다중셋팅 가능 
+    -inset 내부그림자*/
+
+    box-shadow:
+        inset 0 0 20px darkcyan,
+        inset 0 0 50px 10px skyblue;
+}
+
+/* 2-2-1. 제목 */
+h2 {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Black Ops One', cursive;
+
+    color: rgb(0, 98, 255);
+    background-color: rgba(255, 255, 255, 0.673);
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+
+/* 2-2-2. 로봇정보출처 */
+.dcbx small {
+    display: block;
+    /* 인라인 요소 -> 블록으로 변경 : tac 적용 위해 */
+    text-align: center;
+    color: yellow;
+    padding: 10px;
+     font-family: 'Miltonian Tattoo', cursive;
+font-family: 'Passion One', cursive;
+font-family: 'Playfair Display', serif;
+}
+
+/* 2-2-3. 설명문단 */
+.dcbx p {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    /* 자간 */
+    letter-spacing: 1px;
+    /* 단간 */
+    word-spacing: 1.5px;
+
+    /* 가독성을 위한 다단 설정 (다중열 속성)*/
+
+    /* 다중열 개수 */
+    column-count: 2;
+    column-rule: 5px dotted pink;
+    /* 다중열 사이간격 */
+     column-gap: 50px;
+
+     /* 양쪽정렬 justify */
+     text-align: justify;
+
+     /* 단어깨기 break-all 모든 단어깨기 */
+
+     word-break: break-all;
+     /* 단어를 깨닌 이유는 단어단위로 줄바꿈이 되는 1byte문자인 영어인 경우 단어 단위로 모두 깨줘야 양쪽정렬시 중간 공백이 생기지 않는다.
+     (한글과 같은 2byte 문자는 단어깨기를 안해도 모두 떨어진다.)*/
+     text-indent:  20xp;
+}
+
+/* 설명문단 첫글자 가상요소*/ 
+
+.dcbx p::first-letter{
+    font-size: 30px;
+    color: lime;
+    font-weight: bold;
+    /* font-family: 'Black Ops One', cursive; */
+}
+
+
+/* *************하단영역 **************/
+.info{
+    padding: 50px;
+    text-align: center;
+    color: #FFF;
+    /*글자 :  스두크/줄체 */
+    font: 30px 'Black Ops One';
+    text-shadow: 5px 2px 2px rgb(61, 61, 61);
+    /* 배경색 검정반투명 */
+    background-color: rgba(0, 0, 0, 0.182);
 }
