@@ -8,7 +8,7 @@ font-family: 'Passion One', cursive;
 font-family: 'Playfair Display', serif; */
 /* 공사중 표시 */
 body * {
-    /* outline: 2px dashed lime; */
+    /* outline: 2px dashed lㅛime; */
 }
 
 /* 초기화 */
@@ -537,6 +537,10 @@ body {
 
 /* 2-2-1. 제목 */
 .dcbx h2 {
+    position: sticky;
+    top: 20px;
+    /* top값을 지정하면 보이는 화면  - 위치 고정 */
+
     text-align: center;
     font-size: 32px;
     font-family: 'Black Ops One', cursive;
