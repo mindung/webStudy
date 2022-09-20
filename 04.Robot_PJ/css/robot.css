@@ -487,13 +487,16 @@ font-family: 'Playfair Display', serif;
 
 /* 설명문단 첫글자 가상요소*/ 
 
-.dcbx p::first-letter{
-    font-size: 30px;
+.dcbx p::first-letter, .dcbx .my::first-letter{
+    font-size: 28px;
     color: lime;
     font-weight: bold;
     /* font-family: 'Black Ops One', cursive; */
 }
 
+.dcbx .my{
+    display: block;
+}
 
 /* *************하단영역 **************/
 .info{
