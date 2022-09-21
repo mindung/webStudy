@@ -245,3 +245,25 @@
     }
     
 }
+
+.mouth{
+    animation: mAni2 .2s ease-in-out 6s infinite alternate;
+}
+
+@keyframes mAni2 {
+    20%{
+        transform: scaleY(1);
+    }
+    40%{
+        transform: scaleY(1.2);
+    }
+    60%{
+        transform: scaleY(1);
+    }
+    80%{
+        transform: scaleY(1.2);
+    }
+    100%{
+        transform: scaleY(1.2);
+    }
+}
