@@ -37,6 +37,211 @@
         
     }
 
+    (1) 장면에 대한 시간 계산은 어떻게 하나?
+        -> 전체시간 * 설정된 % / 100
+
+    (2) 전체 애니메이션 시간은 언제 셋팅?
+        -> 호출시에 셋팅
+        [ 설정된 키프레임 호출 방법  ]
+
+        animation : 이시이지방마
+        *이름 시간 이징 지연 반복 방향 마지막상태
+
+        1. 이름 (animation-name) : 키프레임 이름
+        2. 시간 (animation-time) : 애니메이션 동작시간
+            -> 초단위(s)
+
+        3.이징(animation-timing-function) : 이징 가속도
+
+        4. 지연 (animation-delay) : 애니메이션 지연시간(s)
+
+        5. 반복(animation-iteration-count) : 애니메이션 반복
+            - 기본값 1, 숫자를 쓰면 숫자만큼 반복
+            - 영원히 infinite(인피니트)
+
+        6. 방향(animation-direction) : 시작 -> 끝
+            -> 두번이상 반복할 경우 반대경로로 애니메이션 설정가능
+            -> alternate : 시작 -> 끝, 끝 -> 시작
+
+        7. 마지막 상태(animation-fill-mode) : 
+        - 애니메이션 끝났을 때 처음으로 돌아가는게 기본
+        -> forwards (앞쪽에..즉, 애니메이션 끝장면으로 마무리!)
+        -> 기본값 : backwards(뒤쩍으로, 즉 처음으로)
+        -> 유의사항 : infinite(영원히)인 경우 해당 없음)
+        
     -> 만약 from 설정이 초기설정과 같다면 
     from 생략할 수 있다!
 ***********************************************************/
+
+/* 1. 로고 */
+.logo{
+    /* 정중앙 이동하기
+    방법 : 50%씩 top, left 밀고 (4사분면 위치)
+    자신의 크기의 절반씩 반대방향으로 이동 
+
+        [css계산함수]
+        calc(계산식) -> 4칙연산가능
+        -주의1 : 뺄셈, 덧셈 앞뒤 공백 필수
+            calc(50% - 특정px)
+        -주의 2: 숫자에 반드시 단위가 있어야함!(더하기/빼기)
+        -> 주의:마이너스 기호 앞뒤를 반드시 띄워쓴다.
+
+    */
+
+    /* 
+    top: calc(50% - 102px);
+    left: calc(50% - 102px);
+    
+        [정중앙 이동하기 : 방법2]
+        - top, left 50% 설정
+        - transform : translate(-50%,-50%)
+        즉, 현재 위치에서 내 크기의 절반만큼 위쪽, 윗쪽으로 이동!
+     */
+
+     /* 방법1 */
+    
+    top: calc(50% - 102px);
+    left: calc(50% - 102px);
+    
+    /* 로고는 204px이므로 절반은 102 */
+    
+    /*
+    방법 2
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    /* 트랜스폼 스케일 */
+    transform: scale(2);
+
+    /* 애니메이션 이시이지반방마 */
+    animation:
+    /* 중앙에서 왼쪽위로 이동애니 */
+    logoAni 2s ease-in-out  1s forwards,
+    /* 이동후 반복회전 */
+    logoAni2 .5s ease-in-out 3s infinite alternate ; 
+    /* animation: logoAni2 4s ease-in-out  1s forwards;  */
+}
+
+/*  로고애니 키프레임*/
+@keyframes logoAni {
+    /* 초기 설정이 from 이므로 생략! */
+    80%{
+        /* 원래 위치와 크기 */
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(0deg);
+    }
+    100%{
+        /* 원래 위치와 크기 */
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(20deg);
+    }
+    /* 움직임 어색하지 않게 0도에서 20도로 자연스럽게
+     맞춤 하기 위하여 80%~100% 각도 변화  */
+
+} /* 키프레임 */
+
+/* 흔들기 로고애니 키프레임 */
+@keyframes logoAni2 {
+    0%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
+}
+
+
+/* 2. 로봇머리 */
+.head{
+    top: -500px;
+    /* top값에 %가 적용 안 되는 이유: 부모박스의 높이값이 auto 즉, 
+    지정하지 않아서 적용 안 됨, 특정 크기 주면 적용 */
+    animation: headAni 3s ease-out 3s forwards;
+}
+
+@keyframes headAni {
+    to{
+        top: 0;
+    }
+}
+/* 3. 로봇 몸 */
+.body{
+    left: -100%;
+    /* 가로크기는 끝가지 채우는 크기 */
+    animation: bodyAni 2s  ease-in 2s forwards;
+}
+
+@keyframes bodyAni {
+    to{
+        left: 0%;
+    }
+}
+
+/* 4. 설명링크 */
+
+.link{
+    /* 투명상태 */
+    opacity: 0;
+    /* 애니메이션: 이시이지반방마 */
+    animation: opaAni 1s linear 4.5s forwards;
+}
+
+/* 5. 위로가기 버튼 */
+.btnTop{
+    /* 투명상태 */
+    opacity: 0;
+    /* 애니메이션: 이시이지반방마 */
+    animation: opaAni 1s linear 5s forwards;
+}
+/* 6. TV */
+.tv{ 
+    opacity: 0;
+    animation: opaAni 1.5s linear 5s forwards;
+}
+
+/* 설명링크, 위로이동버튼, TV 등장 공통 키프레임 */
+@keyframes opaAni {
+    /* 보였다 안보였다! */
+    20%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+} /* 키프레임 */
+
+/* 7. 오른팔 */
+.a2{
+    transform-origin: center 20px;
+    /* 애니메이션 이시이시반방마 */
+    animation:
+    a2Ani 1s  ease-in-out 6s forwards,
+    a2Ani2 .3s  linear 6.5s infinite alternate;
+}
+
+/* 오른팔 올리기 애니*/
+@keyframes a2Ani {
+    to{
+      transform: rotate(-140deg);  
+    }
+}
+
+/* 팔 흔들기 애니 */
+@keyframes a2Ani2 {
+    to{
+        transform: rotate(-130deg);
+    }
+    
+}
