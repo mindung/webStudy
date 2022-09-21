@@ -176,7 +176,7 @@
 
         /* 회전축 변경하기 */
         #trans6 img{
-
+            transform-origin: 100px 20px;
             /* transform-origin: 가로 세로; */
             /* 
             [ 트랜스폼 축변경 속성]
@@ -192,6 +192,10 @@
             - skew(x축, y축)
             - 각도가 양수/음수에 따라 기울임 방향달라짐                
         */
+
+        #trans7:hover img{
+            transform: skewX(2);
+        }
         
 
         /* 
@@ -202,13 +206,22 @@
             - 값이 0이면 사라짐
         */
         
+        #trans8 img{
+            transform: scale(.5);
+        }
 
         /* 
             9. 복합적용하기
             transform: 속성1 속성2 속성3 .....;
         */
         
+        #trans9:hover img{
+            /* 다중트랜스폼 tf */
+            transform: scale(3) translate(100%,-100%) rotate(1200deg) skewX(50deg) rotate(5300deg);
+            /* 트랜지션 시간 늘ㄹ리기 */
+            transition-duration: 20s;
 
+        }
         /* 
             10. 앞뒤로 있는 이미지 뒤집기
             - 셋팅: 한박스 안에 이미지가 2장 있으므로 겹쳐지게 하기위해 이미지
@@ -216,29 +229,67 @@
             - 앱솔루트 끼리는 서로 겹쳐진다
             - 순서는 나중에 그려진요소가 위에 온다
         */
-        /* 2개의 이미지를 겹치게한다 */
-        
+         /* 2개의 이미지를 겹치게한다 */
+         #trans10 img{
+            position: absolute;
+            /* 젠틀앱솔루트는 부모박스에
+            그대로 위치함(부모자격불필요!) */
+            width: 200px;
+            /* 기존에 100%로 공통설정되어
+            있기때문에 %의 기준으로 부모를
+            찾는다! 따라서 그냥px로 셋팅! */
+        }
 
 
         /* 1. 보거미 처음상태(돌아옴) */
         /* Y축 0도로 돌아옴 - 0.4초 기다림 */
+        #trans10 img:last-child{            
+            /* 트랜지션 trs */
+            transition: transform .4s ease-out .4s;
+            /* 돌아올때 0.4초후 돈다!
+            마지막에 천천히 ease-out */
+        }
         
 
 
         /* 2. 보거미 오버상태 */
         /* Y축 90도회전 - 회전후 안보임*/
+        #trans10:hover img:last-child{
+            /* 트랜스폼 tfry */
+            transform: rotateY(90deg);
+            /* 트랜지션 trs */
+            transition: transform ease-in .4s;
+            /* 처음에만 천천히 ease-in */
+        }
         
 
         /* 3. 유정이 처음상태(돌아옴) */
         /* 처음에 이미 Y축 90도 회전상태 - 안보임 */
-        
+        #trans10 img:first-child{
+            /* 트랜스폼 tfry */
+            transform: rotateY(90deg);
+            /* 트랜지션 trs */
+            transition: transform .4s ease-in;
+            /* 돌아갈때는 기다림없이 바로회전! 
+            처음에 천천히 ease-in */
+        }
 
 
         /* 4. 유정이 오버상태 */
         /* Y축 0도로 회전 
         - 보거미 0.4초 돌동안 기다렸가 0.4초돌기 */
+        #trans10:hover img:first-child{
+            /* 트랜스폼 tfry */
+            transform: rotateY(0deg);
+            /* 트랜지션 trs */
+            transition: transform .4s ease-out .4s;
+            /* 0.4초후 돈다! 마지막에 천천히 ease-out */
+        }
+
         
 
+
+        
 
 
         /* 
