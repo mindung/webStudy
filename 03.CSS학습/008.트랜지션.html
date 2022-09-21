@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>트랜지션</title>
     <style>
-        
         /* 
                 [ 트랜지션으로 애니메이션 설정하기 ]
 
@@ -53,9 +52,10 @@
                 ->>>> 기존 트랜지션 없애는 설정은?
                         transition: none;
             */
-        body{
+        body {
             padding-bottom: 400px;
         }
+
         h1 {
             text-align: center;
         }
@@ -80,45 +80,47 @@
             background-color: #ff0;
             border-radius: 50%;
         }
-        
+
 
 
         /* #tr1에 트랜지션 설정 */
         /* 트랜지션을 hover가 아닌 원래 요소에 주면
         양방향 모두 동시적용된다! */
-        #tr1 span{
-            transition:  2s;
+        #tr1 span {
+            transition: 2s;
             /* 앞에 속성을 생략하면 all과 같다.
             모든 속성이 변경될 때 애니메이션함 */
         }
 
-        #tr1:hover span{
+        #tr1:hover span {
             left: 50%;
             background-color: red;
         }
-        
+
         /* #tr2에 트랜지션 설정을 하지 않음! */
-        #tr2 span{
+        #tr2 span {
             left: -5%;
             background-color: orange;
         }
+
         /* 오버시에만 트랜지션을 주면 오버이에만 적용됨 */
-        
-        #tr2:hover span{
+
+        #tr2:hover span {
             left: 70%;
             background-color: lime;
-            transition: all  3s;
+            transition: all 3s;
         }
 
 
 
         /* #tr3에 트랜지션 설정 */
-        
-        #tr3 span{
+
+        #tr3 span {
             transition: all 5s ease-in-out 2s;
             /* 모든 속성이 5초동안 처음과 마지막에 천천히 2초후 애니시작 */
         }
-        #tr3:hover span{
+
+        #tr3:hover span {
             left: 60%;
             background-color: pink;
             /* 원을 사각형으로 */
@@ -126,31 +128,32 @@
             /* 트랜지션 : 속시이지 trs - 오버시에만 적용됨 */
             transition: 1s ease-out;
         }
-        
+
         /* #tr4에 트랜지션 설정 */
         /* 
             여러가지 속성을 별도로 트랜지션 주고자 할 경우
             속시이지 순으로 셋팅하고 콤마로 구분한다!
         */
 
-        #tr4 span{
+        #tr4 span {
             transition:
-            left 5s ease-in-out,
-            backgroud-color 2s ease-out 4s,
-            border-radius 3s linear 5s,
-            top 1s ease-in-out 8s;
+                left 5s ease-in-out,
+                backgroud-color 2s ease-out 4s,
+                border-radius 3s linear 5s,
+                top 1s ease-in-out 8s;
 
         }
-        
+
         /* 오버시 span 변경 */
-        #tr4:hover span{
+
+        /* #cb 체크박스 체크시 span 변경
+        체크시 형제요소(+) 변경 */
+        #cb:checked+span {
             left: 70%;
             background-color: lightgreen;
             border-radius: 0;
             top: -100px;
         }
-       
-        
     </style>
 </head>
 
@@ -174,8 +177,14 @@
 
     <h2>4.원본에 트랜지션을 각 속성별로 다르게 준다</h2>
     <div id="tr4">
+        <label for="cb"></label>
+        <input type="checkbox" id="cb"> 클릭하면 작동하기!
+        <!-- label은 input요소의 설명 요소
+        for 속성은 input의 id와연결됨(클릭시 온골됨) -->
         <span></span>
     </div>
+
+
 </body>
 
 </html>

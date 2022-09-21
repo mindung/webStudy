@@ -90,12 +90,28 @@
             1. rotateY(각도deg) - Y축회전
             - deg는 각도의 단위(도:degree)
          */
+        #trans1:hover img{
+            /* 트렌스폼 tfry */
+            transform: rotateY(180deg);
+            /* 필터 grayscal(값%) */
+            filter: grayscale(100%);
+        }
         
-
         /* 
             2. rotateX(각도deg) - X축회전
          */
-        
+         #trans2 img{
+             transform: rotateX(180deg);
+             /* 흐림효과 */
+             filter: blur(2px);
+        }
+
+        #trans2:hover img{
+            /* 트렌스폼 tfry */
+            transform: rotateY(0deg);
+            /* 필터 grayscal(값%) */
+            filter: blur(0px);
+        }
 
         /* 
             [ CSS 필터속성 ]
@@ -115,7 +131,9 @@
             - 이동방향: + 는 오른쪽, - 는 왼쪽
           */
         
-
+        #trans3:hover img{
+            transform: translateX(-150%);
+        }
         /* 
             4. translateY(거리) - Y축이동
             - 단위: px, %
@@ -124,10 +142,13 @@
             - % 단위를 쓸 경우 기준은 요소의 height
             - 이동방향: + 는 아랫쪽, - 는 윗쪽
           */
-        
+        #trans4:hover img{
+            transform: translateY(-100%);
+        }
 
         /* 
             5. translate(X축거리,Y축거리) - X,Y축이동
+            trt 
             - 단위: px, %
             - 현재 위치로부터 이동
             - 기준점은 요소의 왼쪽선과 윗선
@@ -136,7 +157,9 @@
             - 이동방향: + 는 오른쪽/아랫쪽, 
                         - 는 왼쪽/윗쪽
           */
-        
+        #trans5:hover img{
+            transform: translate(100%, -100%);
+        }
 
         /* 
             6. rotate(각도deg) - 원형회전
@@ -145,10 +168,23 @@
             - 기본회전축은 정중앙
                 (변경가능: transform-origin)
            */
-        
+        #trans6:hover img{
+            transform: rotate(3264deg);
+            /* 트렌지션 시간 늘리기 */
+            transition-duration: 10s;
+        }
 
         /* 회전축 변경하기 */
-        
+        #trans6 img{
+
+            /* transform-origin: 가로 세로; */
+            /* 
+            [ 트랜스폼 축변경 속성]
+                transform-origin: 가로 세로;
+                - 가로값 : left, right, center, 몇px, 몇%
+                - 세로값 : top, bottom, center, 몇px, 몇%
+             */
+        }
 
         /* 
             7. skew - x,y축 기울임
