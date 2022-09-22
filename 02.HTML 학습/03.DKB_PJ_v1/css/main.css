@@ -65,12 +65,27 @@ body {
 }
 
 .cat {
+    /* 레러티브 포지션 - 부모자격 .cd */
+    position: relative;
     /* 블록박스 흘러가게 - left 나는 왼쪽, 너는 오른쪽에 올라와!*/
     width: 24%;
     float: left;
     /* 양쪽마진 : 위아래 0 양쪽 0.5 */
     margin: 0 .5%;
     /* 보통 0.5%와 같이 .소수점 */
+}
+
+/* 캐릭터 이미지박스 */
+.ci{
+    /* 트랜지션 : 속시이지 trs */
+    transition:  margin-top 0.4s  ease-out;
+    padding-bottom: 10px;
+    /* 떨림문제 떄문에 .ci에 패딩 */
+}
+
+/* 케릭터박스에 마우스 오버시 .ci마진탑변경 */
+.cat:hover .ci{
+    margin-top: -50%;
 }
 
 /* 캐릭터 박스 */
@@ -125,8 +140,15 @@ body {
 
 /* 캐릭터 설명 박스 */
 .cd{
+    /* 앱솔루트 포지션 */
+    position: absolute;
+    /* 위치에 대하여 젠틀랩솔루트@
+    갈크기 설정안 한 경우 auto이며
+    이는 앱솔루트일 때 부모를 찾음
+    -> .cat 부모자격 부여
+    */
     /* 높이값 */
-    height: 250px;
+    height: 0;/*-> .cat에 마우스 오버시 250px; */
 
     /* 넘치는 내용요소 자동스크롤 */
     overflow: auto;
@@ -141,13 +163,22 @@ body {
             overflow-y 로 해야 y만 생김
      */
     
-    /* 마진 상단 */
-    margin-top: 15px;
+    /* 마진 상단 mt -> 오버시 떨림문제 .ci 하단 패딩으로 대체
+    margin-top: 15px; */
     
     
      /* 배경 색위반고윙/크 */
-    background: url(../images/eachBG.jpg) no-repeat center/cover;   
+     background: url(../images/eachBG.jpg) no-repeat center/cover;   
+
+     /* 트랜지션 : 속시이지 trs */
+     transition: height .4s ease-out ;
 }
+
+/* 캐릭터 박스에 오버시 .cd 높이값 변경 */
+.cat:hover .cd{
+    height: 250px;
+}
+
 
 /* 'East Sea Dokdo'
 'Noto Serif KR'
