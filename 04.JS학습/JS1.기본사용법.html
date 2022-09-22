@@ -383,9 +383,17 @@
             목표.style.borderRadius = "50%";
 
             // 3-5 배경이미지넣기
-            목표.style.background = "";
+            목표.style.background = "url(./images/kimbs.jpg) no-repeat top/cover";
+
+            // 3-6 위치이동
+            목표.style.top = "50%";
+            목표.style.left = "50%";
+
+            // 3-7. 트랜스폼 적용(정중앙이동)
+            목표.style.transform = "translate(-50%,-50%)";
 
         }
+
     </script>
     <style>
         .pbox {
@@ -410,6 +418,7 @@
             white-space: nowrap;
             /* 글자정렬 */
             text-align: center;
+            /* background: ; */
         }
         /* 김비서글자 이미지 */
         .pbox span img{
