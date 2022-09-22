@@ -6,11 +6,11 @@
 @import url(core.css);
 @import url(common.css);
 
-/* 공사중 표시  */
+/* 공사중 표시 
 
 body * {
     outline: 2px dashed gray;
-}
+} */
 
 /* 컨텐츠 파트 최상위 부모 */
 body {
@@ -172,6 +172,8 @@ body {
 
      /* 트랜지션 : 속시이지 trs */
      transition: height .4s ease-out ;
+
+     border-radius:  20px 5px 5px 20px;
 }
 
 /* 캐릭터 박스에 오버시 .cd 높이값 변경 */
@@ -188,8 +190,8 @@ body {
     font-family: 'East Sea Dokdo';
     font-size: 30px;
     font-weight: 200;
-    padding-top: 20px 10px 5px;
-    
+    padding-top: 10px 10px 5px;
+    padding-left: 10px;
     letter-spacing: -1;
 }
 
