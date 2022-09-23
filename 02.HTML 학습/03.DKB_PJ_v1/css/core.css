@@ -48,3 +48,18 @@ body {
     background-color: #ddd;
     border-radius: 5px;
 }
+
+.clb > li{
+    float: left;
+}
+
+.gnb > li{
+    float: left;
+    /* top: 10px; */
+}
+
+.clb::after{
+    content: '';
+    display: block;
+    clear: both;
+}

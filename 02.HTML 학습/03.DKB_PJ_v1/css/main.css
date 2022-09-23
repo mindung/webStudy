@@ -6,9 +6,9 @@
 @import url(core.css);
 @import url(common.css);
 
-/* 공사중 표시 
+/* 공사중 표시  */
 
-body * {
+/* body * {
     outline: 2px dashed gray;
 } */
 
