@@ -63,3 +63,13 @@ body {
     display: block;
     clear: both;
 }
+
+
+/* IR 클래스 추가 
+배경이미지 설명클래스 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
