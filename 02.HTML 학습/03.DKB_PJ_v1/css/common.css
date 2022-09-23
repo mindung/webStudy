@@ -77,6 +77,24 @@
     right: 0px;
     /* 부모는 .top */
 }
+
+/* sns메뉴 상위 li */
+
+.tmenu>ul>li{
+    padding: 5px 5px;
+}
+/* sns메뉴 상위a */
+
+.tmenu>ul>li>a{
+    font-size: 15px;
+}
+
+/* sns 메뉴 */
+.sns li{
+    width: 30px;
+    height: 30px;
+}
+
 /************** 3. 하단영역 **************/
 /* 겉박스 */
 #info{
