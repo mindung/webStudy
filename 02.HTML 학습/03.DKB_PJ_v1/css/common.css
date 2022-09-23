@@ -1,13 +1,89 @@
 @charset "utf-8";
 /* 도깨비 PJ 공통모듈 CSS - common.css */
-/* 상단-하단영역 반복 디자인 */
+/* 상단영역, 하단영역 반복디자인 */
 
-/* 1. 상단 영역 높이 값 */
+
+/************** 1. 상단영역 **************/
 .top{
     height: 128px;
 }
-
-/* 3. 하단 영역 높이 값 */
+/************** 3. 하단영역 **************/
+/* 겉박스 */
+#info{
+    background-color: rgba(255, 255, 255, 0.765);
+}
+/* 속박스 */
 .info{
+    position: relative;
     height: 241px;
+}
+/* 3-1. 하단링크 */
+.blink{
+    /* 패딩상단 pt */
+    padding-top: 5px;
+}
+/* 하단링크 리스트 */
+.blink ul{
+    /* 가로크기를 줘야 마영오적용확인! */
+    width: 804px;
+    /* 마영오 - 블록박스 가로중앙 */
+    margin: 0 auto;
+}
+
+.blink li{
+    /* 옆으로 흐르게 */
+    float: left;
+    /* 양쪽패딩 */
+    padding: 0 15px;
+}
+/* 글자셋팅 */
+.blink a{
+    /* 글자셋팅 */
+    color: #222;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 2.8;
+}
+/* 마우스 오버시 a */
+.blink a:hover{
+    /* 글자색변경, 밑줄 */
+    color: red;
+    text-decoration: underline;
+}
+
+/* 3-2 회사정보 */
+
+.addr address {
+    font-size: 14px;
+    font-style: normal;
+    text-align: center;
+    line-height: 2;
+
+    width: 804px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 4px double #222;
+}
+
+/* 3-3 하단로고 */
+.blogo{
+    text-align: center;
+}
+
+/* 브랜드 바로가기 */
+.brand{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    /* 부모는 .info */
+}
+/* 선택박스 */
+#sel{
+    color: #222;
+    font-weight: bold;
+    font-size: 14px;
+    /* line-height: 2.8; */
+
+    /* 패딩 */
+    padding: 8px;
 }
