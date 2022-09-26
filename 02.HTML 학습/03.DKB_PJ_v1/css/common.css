@@ -48,7 +48,7 @@
     /* 부모자격이 있는 부분만  */
 
     /* 글자셋팅 */
-    font-size: 17px;
+    font-size: 1.7rem;
     line-height: 2;
 }
 
@@ -86,7 +86,7 @@
 /* sns메뉴 상위a */
 
 .tmenu>ul>li>a{
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 /* sns 메뉴 */
@@ -164,7 +164,7 @@
     /* 글자셋팅 */
     color: #222;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 2.8;
 }
 /* 마우스 오버시 a */
@@ -204,7 +204,7 @@
 #sel{
     color: #222;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1.4rem;
     /* line-height: 2.8; */
 
     /* 패딩 */
