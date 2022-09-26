@@ -422,10 +422,32 @@
 
     /***************** 가로모드 + 1000px이하 *****************/
 
+    @media screen and (orientation:landscape) and (max-width:1000px){
+      /* 배경 변경 */
+      .bx::after {
+        background-position: top;
+        background-size: auto 52%;
+      }
+      /* 스크린 위치변경 */
+      .screen{
+        top: 140px;
+      }
+    }
     /* 가로모드 + 1000px이하 */
-
+    
     /***************** 세로모드 + 1000px이하 *****************/
-
+    
+    @media screen and (orientation:portrait) and (max-width:1000px){
+      /* 배경 변경 */
+      .bx::after {
+        background-position: top;
+        background-size: auto 60%;
+      }
+      /* 스크린 위치변경 */
+      .screen{
+        top: 150px;
+      }
+    }
     /* 세로모드 + 1000px이하 */
   </style>
 </head>
