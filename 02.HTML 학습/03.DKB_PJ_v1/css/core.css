@@ -20,6 +20,10 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
 }
 
+html{
+    font-size: 10px;
+}
+
 .ibx{
     max-width: 1200px;
     /*  최대가로크기 1200px이면
