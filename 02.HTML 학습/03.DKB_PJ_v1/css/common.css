@@ -222,6 +222,7 @@
 /* 모바일용 햄버거 버튼 */
 .ham{
     position: absolute;
+    display: none;
     top: 20px;
     right: 20px;
     width: 50px;
