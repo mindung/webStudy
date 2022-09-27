@@ -20,7 +20,7 @@
 
 #top{
     background-color: #fff;
-    border-bottom: 1.5px solid rgb(118, 118, 118);
+    border-bottom: 1px solid rgb(118, 118, 118);
 }
 /* 1-1 로고 */
 .logo {
@@ -43,7 +43,7 @@
 /* gnb 상위 메뉴 li */
 .gnb>ul>li {
     /* 패딩양쪽*/
-    padding: 0 15px;
+    padding: 5px 15px;
 }
 
 /* GNB 상위메뉴 a */
@@ -111,19 +111,19 @@
 
 .gnb>ul>li:nth-child(1):hover .smenu,
 .gnb>ul>li:nth-child(1):hover::after{
-    height: 120px;
+    height: 130px;
 }
 
 /* 동영상 */
 .gnb>ul>li:nth-child(3):hover .smenu,
 .gnb>ul>li:nth-child(3):hover::after{
-    height: 150px;
+    height: 170px;
 }
 
 /* 사진첩 */
 .gnb>ul>li:nth-child(4):hover .smenu,
 .gnb>ul>li:nth-child(4):hover::after{
-    height: 90px;
+    height: 100px;
 }
 
 /* 상위 li 가상요소로 서브 배경박스 만들기 
@@ -157,7 +157,8 @@
     /* X축으로 중앙이동
     부모는 ? 보이는 화면 */
     
-    width: 1200px;
+    width: 100%;
+    outline: 2px dot red;
 }
 
 .tmenu>ul{
@@ -239,7 +240,7 @@
 /* 하단링크 리스트 */
 .blink ul {
     /* 가로크기를 줘야 마영오적용확인! */
-    width: 804px;
+    max-width: 804px;
     /* 마영오 - 블록박스 가로중앙 */
     margin: 0 auto;
 }
@@ -275,7 +276,7 @@
     text-align: center;
     line-height: 2;
 
-    width: 804px;
+    max-width: 804px;
     margin: 0 auto;
     padding: 10px;
     border: 4px double #222;
