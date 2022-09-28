@@ -32,26 +32,46 @@
             // 평과결과 메시지 변수
             var msg;
 
+            // 평과결과 메시지 글자색 변수 
+            var jc;
+
+            // 평과결과 칭찬스티커 위치변수
+            var bgp;
+
+            // 평과결과 칭찬스티커 위치
             // 4. 점수환산하기
             if (score >= 90) {
                 msg = "매우 잘함!";
+                jc = "blue";
+                bgp = "0 0"
             } else if (score >= 80) {
                 msg = "적당히 잘함!";
-
+                jc = green;
+                bgp = "-322px 0"
             } else if (score >= 70) {
                 msg = "보통!";
-
+                jc = "purple";
+                bgp = "-322px -322px"
             } else if (score >= 60) {
-                msg = " 노력요ㅗ함!";
+                msg = " 노력요함!";
+                jc = "orange";
+                bgp = "0 -644px"
             } else {
                 msg = "재시험보세용;";
+                jc = "red";
+                bgp = "-644px -644px"
             }
 
-            console.log(msg);
-
+            
             //  5. 화면출력 :  #jexp -> jexp 변수
             jexp.innerText = "평과결과는 " + msg;
+            // 6. 글자색 변경
+            jexp.style.color = jc;
             
+            // 7.칭찬스티커 배경위치변경 : #jshow -> jshow 변수
+            jshow.style.backgroundPosition = bgp;
+
+
 
         } /////////////////// jumsu 함수/////////////////// ///////
         /////////////////// /////////////////// /////////////////// 
