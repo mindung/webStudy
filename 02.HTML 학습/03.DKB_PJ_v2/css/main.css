@@ -1,0 +1,210 @@
+@charset "utf-8";
+/* 도깨비 PJ 메인 페이지 CSS - main.css */
+/* 메인 페이지만 적용되는 css */
+
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+@import url(media.css);
+
+/* 공사중 표시  */
+
+/* body * {
+    outline: 2px dashed gray;
+} */
+
+/* 컨텐츠 파트 최상위 부모 */
+body {
+    /* 한번에 배경주기 + 여러개 주기 */
+    /* background 색이반고윙/크 */
+    /* 콤마로 구분하여 여러 배경이미지 넣을 수 있고, 
+    먼저 부른 이미지가 위에 온다. */
+    background:
+        url(../images/bg_logo_a_01.png) no-repeat fixed 15% 30% / 10%,
+        url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+
+    /* background-attachment: fixed;
+        고정의 기준은 보이는 화면이다.
+        스크해도 고정된 배경은 움직이지 않음
+    */
+}
+
+/* 자식요소 float해제 설정 ㄱㅏ상요소 */
+
+/* __________________________________ */
+
+/* 메인 영역  */
+
+.cont {
+    min-height: 969px;
+    /* 최소 높이는 내용이 없어도 설정되 크기를 유지
+    하다가 내용이 많아지면 늘어난다!(많이 씀) */
+    overflow: hidden;
+    /* 이거 왜했? 첫번째 자식요소 마진탑값이
+    부모요소 바깥으로 미는 기본특성이 있으므로
+    이것을 포함하기 위해 설정함 */
+    margin-top: 250px;
+}
+
+/* __________________________________ */
+
+/* 전체 캐릭터박스 */
+.cbx {
+    /* 가로크기 */
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 300px;
+    /* 마진 아래 mb */
+    margin-bottom: 100px;
+    /* height: 100px; */
+}
+
+.cbx::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.cat {
+    /* 레러티브 포지션 - 부모자격 .cd */
+    position: relative;
+    /* 블록박스 흘러가게 - left 나는 왼쪽, 너는 오른쪽에 올라와!*/
+    width: 24%;
+    float: left;
+    /* 양쪽마진 : 위아래 0 양쪽 0.5 */
+    margin: 0 .5%;
+    /* 보통 0.5%와 같이 .소수점 */
+}
+
+/* 캐릭터 이미지박스 */
+.ci{
+    /* 트랜지션 : 속시이지 trs */
+    transition:  margin-top 0.4s  ease-out;
+    padding-bottom: 10px;
+    /* 떨림문제 떄문에 .ci에 패딩 */
+}
+
+/* 케릭터박스에 마우스 오버시 .ci마진탑변경 */
+.cat:hover .ci{
+    margin-top: -50%;
+}
+
+/* 캐릭터 박스 */
+/* .ci의 직계자식 img만 선택 */
+.ci>img {
+    width: 100%;
+    /* margin: 0 o; */
+}
+
+.ci figcaption img {
+    /* 가로크기 50퍼 */
+    width: 30%;
+    /* 항상 값이 % e단위일 경우 질문한다~ 기준이 뭐에요 
+    figcation 박스 가로크기가 기준 */
+    
+}
+
+/* 캐릭ㅇ터 이름 박스 */
+.ci figcaption {
+    /* 글자 중앙 tac 
+        text-align 속성은 글자뿐아니라
+        인라인요소는 모두 적용 됨!
+        단, 크기를 가지는 블록형 박스만 가능
+    */
+    text-align: center;
+    /* 이미지를 위로 올려 겹치게 하려면?
+    포지션을 안쓰고는 마직을 마이나러스로 준다. */
+    margin-top: -15%;
+    /* %의 기준은 ? 원래박스 높이값 */
+
+}
+
+/* 캐릭터 이름 이미지 첫번째 이미지 숨기기 */
+.ci figcaption img:first-child {
+    display: none;
+}
+
+/*  캐릭터박스에 .cat 오버시 */
+/* /* 마우스 오버시 처리 1 */
+ .cat:hover .ci figcaption img:first-child{
+    display: inline; 
+}
+
+/* 첫번째이미지 보이기 */ 
+.cat:hover .ci figcaption img:last-child{
+   display: none; 
+}
+
+/* 마우스 오버시 처리 2
+마지막 이미지숨기기 */
+
+
+/* 캐릭터 설명 박스 */
+.cd{
+    /* 앱솔루트 포지션 */
+    position: absolute;
+    /* 위치에 대하여 젠틀랩솔루트@
+    갈크기 설정안 한 경우 auto이며
+    이는 앱솔루트일 때 부모를 찾음
+    -> .cat 부모자격 부여
+    */
+    /* 높이값 */
+    height: 0;/*-> .cat에 마우스 오버시 250px; */
+
+    /* 넘치는 내용요소 자동스크롤 */
+    overflow: auto;
+
+    /* 
+        overflow 속성
+        - > 넘치는 요소 처리 속성
+        - visible 넘쳐도 보임
+        - hidden 넘치는 요소 숨기기
+        - scroll 스크롤바 생김
+            (x, y 두방향 생김)
+            overflow-y 로 해야 y만 생김
+     */
+    
+    /* 마진 상단 mt -> 오버시 떨림문제 .ci 하단 패딩으로 대체
+    margin-top: 15px; */
+    
+    
+     /* 배경 색위반고윙/크 */
+     background: url(../images/eachBG.jpg) no-repeat center/cover;   
+
+     /* 트랜지션 : 속시이지 trs */
+     transition: height .4s ease-out ;
+
+     border-radius:  20px 5px 5px 20px;
+}
+
+/* 캐릭터 박스에 오버시 .cd 높이값 변경 */
+.cat:hover .cd{
+    height: 250px;
+}
+
+
+/* 'East Sea Dokdo'
+'Noto Serif KR'
+'ZCOOL KuaiLe' */
+/* 캐릭터 설명 타이틀 */
+.cd h3{
+    font-family: 'East Sea Dokdo';
+    /* 최대 글자크기 지정 */
+    font-size: min(1.9vw, 30px);
+    font-weight: 200;
+    /* padding-top: 10px 10px 5px;
+    padding-left: 10px; */
+    padding: 15px min(1vw, 10px) 1.5vw;
+    letter-spacing: -1;
+}
+
+/* 캐릭터 설명 문단 */
+.cd p{
+    font-family: 'Noto Serif KR', 'ZCOOL KuaiLe';
+    font-size: min(1.3vw, 25px);
+    /* 줄간격 lh */
+    line-height: 1.5;
+    padding: min(2vw, 12px) ;
+    /* 양쪽정렬 justify  taj*/
+    text-align: justify;
+}
