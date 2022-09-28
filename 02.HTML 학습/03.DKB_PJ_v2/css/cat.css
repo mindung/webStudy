@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* 도깨비 PJ 인물관계도 페이지 CSS - temp.css */
+/* 인물관계도 페이지만 적용되는 css */
+
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 공사중 표시  */
+
+/* body * {
+    outline: 2px dashed gray;
+} */
+
+#cont{
+    background-color: rgb(255, 254, 224);
+}
+
+/* 메인 속박스 */
+.cont{
+    min-height: 640px; /* 내용이 늘어날 경우 자동 auto */
+    text-align: center;
+}
+
+#catimg{
+    min-width: 100%;
+    /* 이미지에 최대가로크기 100%?
+    싸고 있는 박스가 이미지보다 작아지면 자동으로
+    가로크기를 100%로 맞춤 */
+}
