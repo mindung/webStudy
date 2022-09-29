@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CGV PJ 공통클래스/웹폰트 CSS - core.css */
+
+/*********** 1. 웹폰트 : CDN ***********/
+/* Cute Font, Jua, Audiowide 체 */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap');
+/* 
+    font-family: 'Audiowide', cursive;
+    font-family: 'Cute Font', cursive;
+    font-family: 'Jua', sans-serif;
+*/
+
+    /* 1. 캐릭터 설명 제목체 
+    font-family: 'East Sea Dokdo', cursive;
+
+    2. 캐릭터 설명 내용체
+    font-family: 'Noto Serif KR', serif;
+    
+    3. 캐릭터 설명 한자체
+    font-family: 'ZCOOL KuaiLe', cursive; 
+
+    4.전체 공통제(메뉴 등)
+    font-family: 'Nanum Gothic', sans-serif; */
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+html{
+    font-size: 10px;
+}
+
+/************** 2. 공통클래스 **************/
+
+.ibx{
+    max-width: 1200px;
+    /*  최대가로크기 1200px이면
+        싸고 있는 박스가 이것보다 작아질 경우
+        AUTO로 자동전환되어 가로스크롤이 안생김!
+        */
+    margin: 0 auto;
+}
+
+/* 스크롤바 디자인 클래스 */
+/* webkit - 밴더사명(크롬,사파리) 접두어 */
+/* ex: -ms-(ie), -o-(오페라), -moz */
+
+.scbar::-webkit-scrollbar{
+    width: 12px;
+}
+
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바  */
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바  */
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.clb > li{
+    float: left;
+}
+
+.gnb > li{
+    float: left;
+    /* top: 10px; */
+}
+
+.clb::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* IR 클래스 추가 
+배경이미지 설명클래스 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
