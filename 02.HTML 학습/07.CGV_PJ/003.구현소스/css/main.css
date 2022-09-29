@@ -63,7 +63,7 @@ body * {
     height: 400px;
     
     /* 부모는 .cont */
-    background-color: red;
+    background-color: black;
 }
 
 /* 유튜브 아이프레임 */
@@ -72,7 +72,7 @@ body * {
     height: 100%;
     border:none;
     /* 기본프레임보더 없앰 */
-    
+
 }
 /********************* 3. 하단영역 *********************/
 .info{
