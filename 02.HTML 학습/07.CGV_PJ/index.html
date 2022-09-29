@@ -23,7 +23,32 @@
             <!-- 2-1. 스크린박스 -->
             <div id="screen">
                 <!-- 유튜브 아이프레임 -->
-                <iframe width="893" height="502" src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1&mute=1" allow="autoplay"></iframe>
+                <iframe src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1&mute=1&loop=1&playlist=i1sqO5r3i3w" allow="autoplay"></iframe>
+
+                <!-- 
+                    iframe 요소 : inlie frame
+                    - 다른 페이지를 삽입하는 요소
+                    - src속성 : 필수속성으로 경로를 지정
+                    - 프레임 보더가 있음 (border:none;으로 없앰)
+                    - 디자인은 css 컨트롤 권고
+
+                    [유튜브 동영상 호출시 파라미터 사용]
+                    동영상옵션을 GET방식으로 키=값 넘기기
+                    -> youtube 본사에서 지정함@!
+                    형식 : 유튜브url?키=값&키=값....
+
+                    중요옵션
+                    1. 자동재생 : autoplay=1
+                    2. 소리없음 : mute=1
+                    -> 자동재생시 소리없음해야 자동재생됨!
+                    (이유: 소리가 있고 자동재생 했던 시절 
+                    심장마비로 죽는 사고가 많이 발생함..
+                    그래서 법적으로 자동재생은 소리가
+                    없어야 허용 -> video 태그도 동일!)
+                    3. 반복설정 : loop=1
+                    4. 반복재생리스트 : playlist=동영상ID
+                    -> 반복설정시 반복재생리스트도 같이 씀!
+                 -->
             </div>
         </main>
     </div>
