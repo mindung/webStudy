@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-<!-- 
-    lang-속성 - 웹페이지의 주요언어정보를 담는다.
-    웹접근성 필수속성(평등의 원칙!)
-    언어코드 참조 -->
 
 <head>
     <!-- 인코딩 형식 지정 !!필수!! -->
@@ -11,18 +7,19 @@
     <!-- 뷰포트 필수 ! 미디어쿼리 적용 위해 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 메타요소 정보 : 사이트의 필수 요약정보를
-    전달하는 필수 요소 특히 검색엔진에서 사이트 정보 수집할 때 
-    description의 정보를 수집한다! 또는 keyword의 정보도 수집하지만
-    구글에서는 keyword는 수집 대상이 아니라고 공식 발표했음 -->
     <meta name="description"
         content="불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한 동거를 시작한 기억상실증 저승사자. 그런 그들 앞에 &#39;도깨비 신부&#39;라 주장하는 &#39;죽었어야 할 운명&#39;의 소녀가 나타나며 벌어지는 神비로운 낭만 설화.">
     <meta name="keywords" content="도깨비, 도깨비,공유,김은숙,김고은,이동욱,유인나,육성재,금토드라마">
 
     <title>쓸쓸하고 찬란하신(神) 도깨비 - 로그인</title>
+    <!-- 폰트어썸 CDN CSS 버전 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- 로그인 CSS -->
     <link rel="stylesheet" href="css/login.css">
     <!-- 미디어쿼리는 메인 css 아래 위치(덮어씀) -->
     <link rel="stylesheet" href="css/media.css">
+    
+
 </head>
 
 <body class="scbar">
@@ -176,7 +173,7 @@
                     <div class="addbx">
                         <span>
                             <input type="checkbox" id="chkbx" name="chkbx">
-                            <label for="chkbx">아이디저장</label>
+                            <label for="chkbx"class="fa-regular fa-circle-check"></label>아이디저장
                             <!-- type이 checkbox이면 체크박스 -->
 
                         </span>
