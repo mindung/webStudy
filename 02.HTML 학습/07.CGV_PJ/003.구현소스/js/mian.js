@@ -55,6 +55,7 @@ function chgMV(ele) { // ele - 전달되는 a요소
     var tg = document.querySelector("#screen iframe");
 
     // 변경내용 : 대상요소의 src 속성 변경
+    // src값 중 동영상 ID만 변수에 담긴것으로 변경 -> 반영
     tg.src = `https://www.youtube.com/embed/${minfo}?autoplay=1`;
 } ///////////////chgMV 함수
 
