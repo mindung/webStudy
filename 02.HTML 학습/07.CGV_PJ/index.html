@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <!-- 뷰포트 필수 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGV에 오신것을 환영합니다.</title>
     <link rel="stylesheet" href="./003.구현소스/css/main.css">
+    <!-- 메인 JS 연결 -->
+    <script src="./003.구현소스/js/mian.js" defer></script>
+    <!-- 스크립트 연결시 defer 속성 사용
+        html 요소가 모두 로딩된 후 실행
+    이 방법을 안 쓸때는 소스 코드에서 로딩후 실행 설정을 하면된다. -->
 </head>
+
 <body>
     <!-- 1. 상단영역 -->
     <div id="top">
@@ -23,8 +30,8 @@
             <!-- 2-1. 스크린박스 -->
             <div id="screen">
                 <!-- 유튜브 아이프레임 -->
-                <iframe src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1&mute=1&loop=1&playlist=i1sqO5r3i3w" allow="autoplay"></iframe>
-
+                <iframe src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1&mute=1&loop=1&playlist=i1sqO5r3i3w"
+                    allow="autoplay"></iframe>
                 <!-- 
                     iframe 요소 : inlie frame
                     - 다른 페이지를 삽입하는 요소
@@ -50,6 +57,83 @@
                     -> 반복설정시 반복재생리스트도 같이 씀!
                  -->
             </div>
+            <!-- 2-2. 예고편 선택메뉴-->
+            <nav class="mlist">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="./003.구현소스/images/m1.jpg" alt="닥터스트레인지2">
+
+                            <!-- 영화정보 -->
+                            <ol class="movtxt">
+                                <li>닥터스트레인지2</li>
+                                <li>베네딕트 컴버배치</li>
+                                <li>액션, 판타지, 모험</li>
+                            </ol>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./003.구현소스/images/m2.jpg" alt="쥬라기월드:도미니언">
+
+                            <!-- 영화정보 -->
+                            <ol class="movtxt">
+                                <li>쥬라기월드:도미니언</li>
+                                <li>크리스 프랫</li>
+                                <li>액션, 모험</li>
+                            </ol>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./003.구현소스/images/m3.jpg" alt="브로커">
+
+                            <!-- 영화정보 -->
+                            <ol class="movtxt">
+                                <li>브로커</li>
+                                <li>송강호, 강동원</li>
+                                <li>드라마</li>
+                            </ol>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./003.구현소스/images/m4.jpg" alt="범죄도시2">
+
+                            <!-- 영화정보 -->
+                            <ol class="movtxt">
+                                <li>범죄도시2</li>
+                                <li>마동석, 손석구</li>
+                                <li>범죄, 액션</li>
+                            </ol>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./003.구현소스/images/m5.jpg" alt="몬스터싱어">
+
+                            <!-- 영화정보 -->
+                            <ol class="movtxt">
+                                <li>몬스터싱어</li>
+                                <li>바네사 파라디</li>
+                                <li>애니메이션</li>
+                            </ol>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./003.구현소스/images/m6.jpg" alt="스파이더맨">
+
+                            <!-- 영화정보 -->
+                            <ol class="movtxt">
+                                <li>스파이더맨:노웨이홈</li>
+                                <li>톰 홀랜드</li>
+                                <li>액션,모험</li>
+                            </ol>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
     <!-- 3. 하단영역 -->
@@ -57,4 +141,5 @@
         <footer class="info ibx"></footer>
     </div>
 </body>
+
 </html>
