@@ -42,6 +42,65 @@
         }
     </style>
     <script>
+
+        // html의 body보다 위에 있는 스크립트 구역은
+        // 당연히 먼저 실행된다. 따라서 html 요소 호출시
+        // null값으로 아무것도 불러올 수 없다.
+        // html 태그를 모두 로딩후 실행해야함
+        // window 객체에 load 이벤트 후 코드를 실행하도록함
+
+        // [js 이벤트 등록 내장함수 :
+        //  addEventLinstener(이벤트명, 함수)]
+
+        // 로드 이벤트의 종류:
+        // 1. load - 모든 컨텐츠가 로딩 후 발생
+        //          (이미지, 동영상 등 모두 불러온 후 발생)
+        // 2. DOMContentLoaded -  html 태그가 모두 그려지면 발생
+        //              (태그만 그리면 바로 실행하므로 load보다 빠름)
+
+        // html이 모두 로딩 후, setFn 함수 호출하기
+        // 대상 window객체 -> window
+        // 사용 JS 내장함수: addEventListener(이벤트명, 함수)
+        // 사용할 이벤트 : DOMContentLoaded
+        window.addEventListener("DOMContentLoaded", setFn);
+        // 만약 전달값이 없다면 함수 호출시 소괄호 없이 사용함
+        // 전달값이 있다면 ....
+        // 이벤트 설정 함수 ///////////////////
+
+        /**********************************
+         함수명 : setFn
+         기능 : 버튼에 이벤트 설정하기
+
+         EX) window.addEventListener("DOMContentLoaded", 
+         function(){ setFn(전달값)});
+
+         - 또는 익명함수안에 직접 구현코드를 넣을 수 있음
+         - 익명함수의 특성상 코드를 바로 실행않고 보관하다가
+         이벤트가 발생하면 함수안에 코드를 실행함
+        **********************************/ 
+
+        function setFn(){
+            // 1. 함수호출확인
+            // console.log("이벤트설정!");
+
+            // 2.대상선정 : 버튼들 - .btns
+            const btns = document.querySelectorAll(".btns");
+            // querySelectorAll()은 가져온 요소를 컬렉션집합에 담는다
+            // 컬렉션 집합은 반드시 개별요소 접근시 .item(n)/[n] 사용함
+            // 3. 버튼개수 변수할당
+            // 이벤트 적용대상 : 버튼들 - btns 변수 : 컬렌션에 담김
+            const cnt = btns.length;
+            // console.log("버튼들:", btns, "/개수: ",cnt);
+
+            for(let i=0; i<cnt;i++){
+                btns[i].addEventListener("click", function(){chgImg(this)});
+                // btns[i].onclick = function(){chgImg(this)};
+                // 함수호출시 이벤트가 걸린 나 자신 -> this를 보냄
+            } //////////////// for //////////////// 
+            // 대상만큼 모두 돌아서 클릭이벤트 셋팅
+
+        } /////////////// setFn 함수/////////////
+
         /*********************************************** 
             [JS 기능정의]
             버튼을 클릭하면 버튼별로 해당 이미지를
@@ -57,6 +116,39 @@
             기능: 이미지 src변경하기
         **************************************/
         
+        function chgImg(ele) {
+
+            // 버튼텍스트 읽어오기
+
+            let btxt = ele.innerText;
+            console.log(btxt);
+            //1. 호출확인
+            console.log("나야나");
+
+            // 이미지 경로변수(이것이 버튼별 바뀜)
+            let isrc;
+
+            
+            // 2. 버튼별 데이터 분기하기
+            if(btxt==="포스터"){
+                isrc = "./images/ala1.jpg";
+            } else if(btxt==="장면1"){
+                isrc = "./images/ala4.jpg";
+            } else if(btxt==="장면2"){
+                isrc = "./images/ala3.jpg";
+            } else{
+                isrc = "./images/ala2.jpg";
+            }
+
+            console.log(isrc);
+            // 3. 대상 이미지에 src값 변경하기
+            // 대상이미지 #scene
+            
+            // 속성변경하기 JS내장함수 : setAttribute(속성값,값)
+            document.querySelector("#scene").setAttribute("src", isrc);
+
+        }
+
     </script>
 </head>
 
