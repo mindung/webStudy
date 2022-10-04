@@ -20,7 +20,18 @@ function(){
         // 2. 대상선정: .cube -> cube 변수
 
         // 3. 변경내용 : 변경대상요소에 클래스 넣기/빼기
-
+        cube.classList.toggle("on")
+        cube.classList.add("on") ?
+         btns.innerText = "멈춰!" : btns.innerText = "돌아!";
+        
+        // 4. 큐브 클래스 on여부에 따라 버튼 글자 변경하기
+        // if(cube.classList.contains("on") === true){
+        //     ";
+            
+        // } else{
+        //     btns.innerText = "돌아!"; 
+            
+        // }
         /****************************************************
          *  [클래스 컨트롤 객체]
          * classList
