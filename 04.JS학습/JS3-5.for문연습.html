@@ -36,9 +36,49 @@
             함수명: insMini
             기능: 미니언즈 이미지를 파란박스에 넣기
         */ ////////////////////////////////////////
-        
-        ////////// insMini 함수 /////////////////
-        ///////////////////////////////////////////
+
+        // 익명함수 function(){} -> 화살표함수()=>{}
+
+        window.addEventListener("DOMContentLoaded", () => {
+            console.log("로딩완료");
+            // 클릭이벤트 대상
+            // 클래스 대상 .mini
+
+            const mini = document.querySelectorAll(".mini");
+            // console.log(mini);
+
+            // 변경대상 : .Bcase
+            const bcase = document.querySelector(".Bcase");
+            // querySelector() 만나는 요소 하나만 가져옴 
+            // console.log(bcase);
+
+            // 이벤트 세팅하기
+            // mini[0].onclick = function(){insMini(1)};
+
+            
+            mini[0].onclick = () => insMini(1);
+            mini[1].onclick = () => insMini(5);
+            mini[2].onclick = () => insMini(10);
+            
+            function insMini(num) { // num - 반복수 받기
+                // 1. 호출 및 전달값 확인 
+                console.log("hellow!, ", num);
+
+                // 2. 변경대상: .Bcase -> bcase 변수
+                // 대상박스에 num개 만큼 미니언즈 이미지 넣기
+                for (let i = 0; i < num; i++) {
+                    bcase.innerHTML += '<img src="./images/Minions.png" alt="미니언즈">';    
+                }
+                
+            } ////////// insMini 함수 /////////////////
+            ///////////////////////////////////////////
+            
+            const rbtn = document.querySelector("button");
+            rbtn.onclick = () => btnRem();
+            function btnRem(){
+                bcase.innerHTML ='';
+            }
+        });
     </script>
 </head>
 
@@ -49,8 +89,8 @@
     <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!">
 
     <!-- 리셋을 한다면 이렇게...! -->
-    <button>리셋</button>
-    
+    <button class="rbtn">리셋</button>
+
     <!-- 파란상자 -->
     <div class="Bcase"></div>
 
