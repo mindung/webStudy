@@ -5,23 +5,96 @@
     <meta charset="UTF-8">
     <title>For문 옵션</title>
     <style>
-        .forCls{
+        .forCls {
             height: 100px;
             border: 4px dotted lightseagreen;
         }
+
         .forCls img {
             height: 100px;
         }
     </style>
     <script>
-        /*///////////////////////////////////////
-            함수명: addNum
-            기능: for문으로 숫자이미지를 추가한다
-        */ ///////////////////////////////////////
+        //////////////로드구역//////////////
+        window.addEventListener("click", function () {
 
-         ///////////// addNum 함수 /////////////////
+            // 대상 선정!
+
+            // 클릭이벤트 대상 button
+            let btns = document.querySelectorAll("button");
+            let cnt = btns.length;
+
+            // 변경대상: .forCls
+            let tg = document.querySelectorAll(".forCls");
+            console.log(tg);
+
+            for (let i = 0; i < cnt; i++) {
+                btns[i].onclick = addNum;
+            }
+
+            /*///////////////////////////////////////
+                함수명: addNum
+                기능: for문으로 숫자이미지를 추가한다
+            */ ///////////////////////////////////////
+
+            function addNum() {
+                // 0. 호출한 버튼요소 자식의 버튼 텍스트
+                let btxt = this.innerText;
+                // this는 항상 이벤트설정된 요소 자신임
+                // 버튼별로 호출하는 요소가 들어옴
+
+                // 1. 함수호출 확인
+                console.log("Hellow", btxt);
+
+                // 초기화
+                for (i = 0; i < 3; i++) tg[i].innerHTML = ``;
+
+                // 2. 버튼에 따른 분기
+                if (btxt === "기본호출") {
+                    for (let i = 1; i <= 10; i++) tg[0].innerHTML += `<img src="./images/num/num_0${i}.png" alt="숫자이미지">`;
+
+                } else if (btxt === "for문옵션1") {
+                    for (let i = 1; i <= 10; i++) {
+                        if (i != 4 && i != 7) {
+                            tg[1].innerHTML += `<img src="./images/num/num_0${i}.png" alt="숫자이미지">`;
+                        }
+                    } ////// for ///////
+                } else {
+                    for (let i = 1; i <= 5; i++) tg[2].innerHTML += `<img src="./images/num/num_0${i}.png" alt="숫자이미지">`;
+                }
+
+                ///////////////////////////// 수업 방식 코드 하단
+
+                let num;
+
+                if(btxt === "기본호출") num = 0;
+                else if(btxt === "for문옵션1") num = 1;
+                else if(btxt === "for문옵션2") num = 2;
+
+                // tf[num].innerHTML = ``;
+
+                // for(let i = 1; i <= 10; i++){
+                    
+                    // 4번과 7번 이미지 빼고 돌리기
+                    // continue 키워드 사용
+                    // -> 해당순번 빼고 계속 돌기
+                    // 제외란 ? continue 하단 코드가 실행 인 됨
+                    // 조건이 num이 1이고 i가 4또는 7
+                    // if(num===1&&(i===4||i===7)) continue;
+                    
+                    // [5번까지만 돌리기]
+                    // break 키워드 사용 - break 만나는 순간 제어문 빠져나감
+
+                    // if(num===2&&i===6) break;
+                    // tg[num].innerHTML += `<img src="./images/num/num_0${i}.png" alt="숫자이미지">`;
+                // }
+
+            } ///////////// addNum/////////////////
+
+        }); //////////////로드구역//////////////
+
+        ///////////// addNum 함수 /////////////////
         /////////////////////////////////////////////
-        
     </script>
 </head>
 
