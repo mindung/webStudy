@@ -22,6 +22,8 @@ body {
     position: relative;
     height: 80px;
     background: url(../images/curtain.jpg) repeat-x;
+    /* 가 장위 */
+    z-index: 99999;
 }
 
 
@@ -49,13 +51,16 @@ body {
 .gnb ul{
     /* 직계li만 옆으로 흘러간다. */
     display: flex;
+    /* 메뉴박스 공통 글자체 */
+    font-family: 'Jua', sans-serif;
 }
 
-.gnb ul li{
-    font-family: 'Jua', sans-serif;
+/* 상위 li만 적용 */
+.gnb ul>li{
+    position: relative;
     padding: 0 10px;
-    color: #FFF;
     font-size: 2rem;
+    /* color: #FFF; */
 }
 /* 타이틀 글로우 효과 애니메이션 키프레임*/
 @keyframes titAni {
@@ -64,6 +69,79 @@ body {
     }
 
     /* 키프레임 */
+}
+
+/* GNB 서브메뉴 */
+.smenu{
+    position: absolute;
+    
+    left: 50%; 
+    /* 부모는 .gnb ul>li */
+
+    /* 트랜스폼 X축으로 중앙 이동 */
+    transform: translate(-50%, 5px);
+    width: 140px;
+    padding: 3px;
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #FFF;
+
+    display: none;
+}
+/* 상위메뉴 li에 마우스오버시 하위메뉴 보이기 */
+.gnb ul>li:hover .smenu{
+    display: block;
+}
+/* 가상요소로 삼각형 모양 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    /* 부모는 smenu */
+    position: absolute;
+    /* 중앙으로 보내기 */
+    left: 50%;
+    transform: translateX(-50%);
+    top: -10px;
+
+    /* 삼각형 만들기 */
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #353535;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    /* 옆 테두리 투명하게 하면 삼가형으로 */
+}
+
+/* 서브메뉴 ol */
+.smenu ol{
+    border: 1px solid #CCC;
+    padding: 10px;
+}
+
+.smenu li{
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.smenu a{
+    display: block;
+    /* li패딩안쪽까지 확장! */
+}
+
+.smenu a:hover{
+    color:red;
+}
+
+/* 서브메뉴 오버시 이모지 가상요소로 넣기 */
+.smenu a:hover::after{
+    content: '💥';
+    float: right;
+}
+
+/* 서브메뉴 중 li 보더 상단 class  */
+
+.bdt{
+    border-top: 1px solid #CCC;
 }
 
 /********************* 2. 메인영역 *********************/
