@@ -57,15 +57,19 @@ window.addEventListener("DOMContentLoaded", () => {
         3. toggle(클래스명) - 클래스추가/제거
     */
 
-    // 1. 클릭 이벤트 설정
-    for (let x of mli) {
-        // 초기화하기(모두on제거!)
-        mli.forEach(
-            ele => ele.classList.remove("on"));
-        };
-        x.onclick = () => {
-            x.classList.add("on")
-    }
+        for (let x of mli) { // x는 요소자신
+            // console.log("x는?",x);
+            // 클릭 이벤트 설정하기
+            x.onclick = () => {
+                // 1.초기화하기(모두on제거!)
+                // ele는 각각의 요소자신(li)
+                mli.forEach(
+                    ele => ele.classList.remove("on"));
+                // 2.클릭된 자신에게 클래스 on넣기!
+                x.classList.add("on");
+            }; ////// click ////////
+    
+        } ////////// for of /////////////
 }); ///////////////// 로드구역 ///////////////////////
 
 ///////////////////////////////////////////////////
