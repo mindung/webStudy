@@ -61,6 +61,9 @@ body {
     padding: 0 10px;
     font-size: 2rem;
     /* color: #FFF; */
+    /* 하단패딩 - 서브메뉴 아웃문제 해결 */
+    padding: 0 10px;
+    padding-bottom: 5px;
 }
 /* 타이틀 글로우 효과 애니메이션 키프레임*/
 @keyframes titAni {
@@ -133,8 +136,23 @@ body {
 }
 
 /* 서브메뉴 오버시 이모지 가상요소로 넣기 */
-.smenu a:hover::after{
+/* 영화 하위메뉴 이모지 */
+.gnb ul>li:nth-child(1) .smenu a:hover::after{
     content: '💥';
+    float: right;
+}
+
+.gnb ul>li:nth-child(2) .smenu a:hover::after{
+    content: '🎫';
+    float: right;
+}
+.gnb ul>li:nth-child(3) .smenu a:hover::after{
+    content: '🎬';
+    float: right;
+}
+
+.gnb ul>li:nth-child(4) .smenu a:hover::after{
+    content: '✨';
     float: right;
 }
 
@@ -192,12 +210,23 @@ body {
     display: flex;
     /* 수평방향 정렬 */
     justify-content: center;
-
+    /* 원근설정 - 하위 li에 주기 위함
+     3d 애니메이션 */
+    perspective: 480px;
 }
 
 /* 상위 li 2번째부터 끝까지 선택 */
 .mlist>ul>li+li {
     margin-left: 10px;
+}
+
+/* 상위 li에 마우스 오버시 일어나! */
+
+.mlist ul>li:hover,
+.mlist ul>li.on{
+transform: rotateX(0deg);
+    outline: 1px solid aqua;
+    z-index: 1;
 }
 
 .mlist img {
@@ -212,6 +241,13 @@ body {
     overflow: hidden;
     /* 부모자격이 있는 요소가
     앱솔루트 숨길 수 있다! */
+
+    /* bottom을 기준으로 축을 변경하고 회전 시킴 */
+    transform-origin: bottom;
+    transform: rotatex(40deg);
+    /* 트랜지션 속시이지 */
+    
+    transition: all .4s ease-out;
 }
 
 .movtxt {
