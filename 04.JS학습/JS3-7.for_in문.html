@@ -87,7 +87,59 @@
                     대상의 각 내용에 맞게 객체로부터 정보를 셋팅함!
             ********************************************************/
 
-            
+            // 대상변수 할당하기
+
+            // 이벤트 대상: /btns button
+            const btns = document.querySelectorAll(".btns button");
+            console.log("버튼들 : ", btns);
+
+            // 대상변수 click 이벤트 설정하기
+            // for of문 사용
+
+            for (let x of btns) { // x - 버튼요소자식
+                x.onclick = () => {
+                    // 1. 클릭된 버튼의 글자
+                    let btxt = x.innerText;
+                    console.log(btxt);
+
+                    // 2. 버튼 텍스트와 같은 객체속성명
+                    // 의 값을 가져오기(영화정보객체)
+                    let data = mvi[btxt];
+                    console.log("할당객체 :", data);
+
+                    for (let z in data) {
+                        // console.log(z);
+                        // console.log(data[z]);
+
+                        // 각 속성명에 해당하는 데이터 셋팅하기
+                        switch (z) {
+                            // v포스터
+                            case "포스터":
+                                document.querySelector(".photo").innerHTML =
+                                    `<img src = "${data[z]}" alt="${btxt}의 포스터">`;
+                                break;
+                                // 제목
+                            case "제목":
+                                document.querySelector(".tit").innerText = `영화명 : ${data[z]}`;
+                                break;
+                            case "개요":
+                                document.querySelector(".sum").innerText = `장르 : ${data[z]}`;
+                                break;
+                            case "감독":
+                                document.querySelector(".dir").innerText = `감독 : ${data[z]}`;
+                                break;
+                            case "출연":
+                                document.querySelector(".act").innerText = `배우 : ${data[z]}`;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    // 3. 해당요소에 데이터 넣어주기
+                    // for in문 사용!
+                    // for(변수 in 객체){코드}
+                };
+            } //////////////////// for of//////////////////////////
 
             /************************************************* 
                 [ 객체를 위한 for in 문 ]
