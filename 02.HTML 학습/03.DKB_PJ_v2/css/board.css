@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* 도깨비 PJ 시청자게시판 페이지 CSS - login.css */
+/* 시청자게시판 페이지만 적용되는 css */
+
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 공사중 표시  */
+
+/* body * {
+    outline: 2px dashed gray;
+} */
+
+/* 메인 겉박스 */
+#cont {
+    background-color: rgb(255, 254, 224);
+}
+
+/* 메인 속박스 */
+.cont {
+    min-height: 600px;
+    padding: 10px;
+    /* 내용이 늘어날 경우 자동 auto */
+    /* text-align: center; */
+}
+
+#catimg {
+    min-width: 100%;
+    /* 이미지에 최대가로크기 100%?
+    싸고 있는 박스가 이미지보다 작아지면 자동으로
+    가로크기를 100%로 맞춤 */
+}
+
+/* 1. 타이틀 */
+.stit{
+    font-size: 5rem;
+    text-align: center;
+    padding: 40px 0 20px;
+    font-weight: normal;
+}
+/* 2. 콘텐츠박스 */
+.scont{
+    /* 렐러티브 포지션 (부모자격:btnbx) */
+    position: relative;
+    /* max-width: 700px; */
+    min-height: 275px;
+    margin: 0 auto;
+    
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid lightslategrey;
+    padding: 60px 15px 0;
+    /* 박스크기유지 : 보더, 패딩 포함 bxb*/
+    box-sizing: border-box;
+}
+
+/* charset "utf-8"; */
+/* 한국최신드라마 리스트 CSS - drama.css */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;400&display=swap'); */
+
+
+/* 초기화 */
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+/* 테이블 공통 */
+.tbl{
+    /* 글자색 c */
+    color: #222;
+    /* 테이블 기본 사이간극 없애기 */
+    border-collapse: collapse;
+}
+
+/* 드라마 리스트 테이블 */
+#drama{
+    /* 글자크기 fz */
+    font-size: 2rem;
+    /* 블록or테이블 가로중앙정렬 - 마.영.오! */
+    margin: 0 auto;
+    /* 가로크기 w */
+    width: 95%;
+    /* 테이블 width지정이 없으면 내용만큼 늘어남!
+    좁으면 아래로 내용이 줄바꿈됨 */
+}
+/* 테이블 제목 */
+#drama caption{
+    /* 글자크기 fz */
+    font-size: 35px;
+    /* 글자두껍게 fwb */
+    font-weight: bold;
+    /* 자간 ls */
+    letter-spacing: 5px;
+    /* 패딩 p */
+    padding: 50px 0 20px;
+    /* 위 양쪽 아래 */
+}
+/* td와 th 패딩 */
+#drama td,
+#drama th{
+    padding: 8px 10px;
+    /* 위아래 양쪽 */
+}
+
+
+/* dt에 밑줄 넣기
+- 테이블 본문에만 */
+#drama tbody td{
+    /* 보더아래 bdb */
+    border-bottom: 1px solid #CCC;
+}
+
+/* th에 윗줄, 아랫줄 두꺼운 보더 넣기 */
+
+#drama th{
+    /* 보더위 bdt */
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+
+#drama tbody tr:last-child td{
+    border-bottom: 2px solid #555;
+}
+
+/* 본문 (tbody)의 짝수번째 tr의 td배경색 넣기 
+nth-child(순번) -> odd(홀수), even(짝수)
+*/
+
+#drama tbody tr:nth-child(even) td{
+    background-color: rgb(232, 230, 230);
+}
+
+/* 본문(tbody)의 첫번째 td(번호항목) 중앙정렬 tr:first-child*/
+#drama tbody  td{
+    text-align: center;
+}
+
+#drama tfoot td{
+    text-align: center;
+    padding: 45px 0;
+}
+
+/* 드라마면 링크처리 */
+#drama tbody a{
+    color: #222;
+    text-decoration: none;
+}
+
+/* 드라마명 오버시 */
+#drama tbody a:hover{
+    color: hotpink;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+
+/* 하단 페이징  링크처리 */
+#drama tfoot a{
+    color: #222;
+    text-decoration: none;
+}
+
+/* 드라마명 오버시 */
+#drama tfoot a:hover{
+    color: blue;
+}
