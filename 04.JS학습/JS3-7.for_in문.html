@@ -134,7 +134,35 @@
                             default:
                                 break;
                         }
-                    }
+
+                        // 영화 한마디 넣기
+                        // for of문으로 문자데이터 잘라넣기!
+                        // 한글자씩 span 태그로 싸서 해당요소에 넣음
+                        if(z==="문구"){
+                            let txt = data[z];
+                            // 만들어진 span태그 문구를 담을 변수
+                            let newtxt =""; //빈 문자할당
+
+                            // 문구데이터를 for of문으로 하나씩 넣기
+                            for(let m of txt){
+                                console.log("한글자씩:",m);
+                                if(m===" ") // 스페이스일 경우
+                                    newtxt += "&nbsp;&nbsp;&nbsp;";
+                                else // 그 밖에 문자일 경우
+                                    newtxt += `<span>${m}</span>`;
+                            } /////// for of ////////
+
+                            // 문구 데이터 대상에 출력!
+                            document.querySelector(".show")
+                            .innerHTML = newtxt;
+
+                            // "영화 한마디" 타이틀 보이기
+                            document.querySelector(".showtit")
+                            .style.display = "block";
+
+                        } //////// if  ///////////////
+
+                    } //////////// for in ///////////
                     // 3. 해당요소에 데이터 넣어주기
                     // for in문 사용!
                     // for(변수 in 객체){코드}
