@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* 도깨비 PJ 회원가입 페이지 CSS - member.css */
+/* 회원가입 페이지만 적용되는 css */
+
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 공사중 표시  */
+
+/* body * {
+    outline: 2px dashed gray;
+} */
+
+/* 공통 메시지 박스 */
+.msg{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    /* 부모는 .scont li */
+    
+    white-space: nowrap;
+    height: 15px;
+    line-height: 15px; /* 꼭 적어주기! */
+
+    font-size: 1rem;
+    color: red;
+}
+
+/* 글자색 변경 클래스 */
+
+.msg.on{
+    color: green;
+}
+
+/* 포커스 아웃라인 제거 */
+
+
+/* 메인 겉박스 */
+#cont {
+    background-color: rgb(255, 254, 224);
+}
+
+/* 메인 속박스 */
+.cont {
+    min-height: 600px;
+    padding: 15px;
+}
+
+
+/* 1. 타이틀 */
+.stit{
+    font-size: 5rem;
+    text-align: center;
+    padding: 40px 0 20px;
+    font-weight: normal;
+}
+/* 2. 콘텐츠박스 */
+.scont{
+    /* 렐러티브 포지션 (부모자격:btnbx) */
+    position: relative;
+    max-width: 700px;
+    min-height: 275px;
+    margin: 0 auto;
+    
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid lightslategrey;
+    padding: 30px 50px;
+    /* 박스크기유지 : 보더, 패딩 포함 bxb*/
+    box-sizing: border-box;
+}
+
+/* 리스트 ul */
+.scont ul{
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    /* html 10px * 2 = 20px = 2rem*/
+    font-weight: bold;
+    color: #333;
+}
+/* 리스트 li */
+.scont li{
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    /* outline: 2px dotted red; */
+}
+
+.itit{
+    display: inline-block;
+    width: 200px;
+}
+/* 입력박스 공통 */
+/* []는 속성(attribute) 선택자 */
+.scont input[type=text],
+.scont input[type=password]{
+    width: 340px;
+    height: 36px;
+    font-size: 2rem;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+/* 라디오버튼 */
+.scont input[type=radio]{
+    width: 20px;
+    height: 20px;
+}
+/* 이메일 앞주소 */
+#meail1{
+    width: 170px;
+}
+/* 이메일 뒷주소 */
+#email2{
+    width: 155px;
+    float: right;
+    margin-top: 4px;
+    margin-right: 30px;
+    display: none;
+}
+
+/* 이메일 선택박스 =  드롭다운박스 = 콤보박스*/
+#seleml{
+    width: 145px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#btnj{
+    width: 113px;
+    height: 40px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #ddd, rgb(129, 129, 129));
+    color: #fff;
+    text-shadow: .5px 1px 1px #000;
+    font-weight: bold;
+    font-size: 1.8rem;
+    float: right;
+    margin-top: 5px;
+    margin-right: 30px;
+    /* 손가락 모양(cursor) */
+    cursor: pointer;
+}

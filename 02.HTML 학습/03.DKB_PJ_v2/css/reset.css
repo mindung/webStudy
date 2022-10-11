@@ -31,3 +31,9 @@ img{
         하단에 4PX공백이 생김, 이것을 없애기 위해 vertical-align 속성을
     */
 }
+
+/* 포커스 아웃라인 제거
+모드 브라우저에 기본 포커스 아웃라인 세팅 */
+input:focus, select:focus{
+    outline: nome;
+}
