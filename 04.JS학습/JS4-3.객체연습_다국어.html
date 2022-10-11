@@ -143,17 +143,16 @@
 
             // 대상선정
             // (1) 이벤트 대상: .sel
-            
+            const sel = document.querySelector(".sel");
 
             // (2) 변경 대상: GNB메뉴 -> #gnb a
-            
+            const menu = document.querySelectorAll("#gnb a");
 
             // (3) 변경 대상: 메인 이미지 -> #cont img
-            
+            const mimg = document.querySelector("#cont img");
 
             // (4) 변경 대상: 하단 회사정보 -> #info address
-           
-
+            const info = document.querySelector("#info address");
 
             ////////////////////////////////////////////////
             // 1. 선택박스 선택변경시 change이벤트에 따라 변경
@@ -161,7 +160,35 @@
             // 이벤트 종류: change
             // 변경대상: 메뉴, 메인이미지, 하단정보
             /////////////////////////////////////////////////
-            
+
+            // sel.onchange = () => {
+            sel.onchange = function () {
+                // console.log("나야나", this, event.currentTarget);
+                // this 키워드: 이벤트걸린 요소자신(.sel)
+                // 화살표 함수를 썼다면 this는 window객체!
+                // 자기 자신은 event.currentTarget으로 구함
+
+                // 2. 다국어 언어코드를 선택박스 선택값에서 가져옴
+                let opt = this.value;
+                console.log("선택값 : ", opt);
+
+                // 3. 가져온 언어코드로 객체에서 언어를 선택
+                let data = lang[opt];
+                console.log(data);
+
+                // 4.메뉴변경하기
+                // 대상 : menu변수
+                // foreach((요소/배열값,순번,객체)=>{})
+                menu.forEach((ele, idx) =>
+                    ele.innerText = data["메뉴"][idx]);
+                /////////////// foreach ////////////////
+
+                // 5. 메인이미지 변경
+                // 대상: ming 변수
+                // setAttribute(속성명, 깂)
+                mimg.setAttribute("src", `images/${opt}.jpg`);
+            }; /////////////////// change //////////////////
+
 
 
 
