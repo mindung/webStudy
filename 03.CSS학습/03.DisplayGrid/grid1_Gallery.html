@@ -57,53 +57,67 @@
         }
 
         /* 그리드 박스 */
-        
-        .grid{
+        .grid {
             display: grid;
-            /* [가로 그리드 템플릿] 
-                1. 가로 사이즈 구체적인
-                단위사용하여 설정하기
-                (수치개수만큼 컬럼이 생성)
-            */
-            /* grid-template-columns: 100px 200px 300px 400px; */
+
+            /* [가로 그리드 템플릿] */
+            /* 1. 가로 사이즈 구체적인 단위사용하여 설정하기
+            (수치개수만큼 컬럼생성) */
+            /* grid-template-columns: 
+            100px 200px 300px 400px; */
 
             /* 2. fr단위로 가로전체에 대한 비율을 설정 */
-            /* grid-template-columns: 1fr 3fr 5fr 2fr; */
+            /* grid-template-columns: 
+            1fr 3fr 5fr 2fr; */
 
-            /* 3. repeat(수치의 반복수, 반복수치) */
-            /* grid-template-columns: repeat(5, 1fr); */
+            /* 3. repeat(수치의 반복수,반복수치) */
+            grid-template-columns:
+                repeat(5, 1fr);
 
-            /* 3번 repeat()에 대한 다양한 실험 */
-            /* grid-template-columns: repeat(2, 300px 1fr 3fr); */
-
-
-            /* 비율이 여러가지일 때 띄어쓰기로 표기함!
-            생성되는 컬럼수는 (비의 반복수*반복수치의 개수)
-            위의 예에서 2*3=6개의 컬럼생성 */
-
+            /* 3번 repeat()에 대한 다양한 실험! */
+            /* grid-template-columns: 
+            repeat(2, 300px 1fr 3fr); */
+            /* 
+                비율이 여러가지일때 띄어쓰기로 표기함!
+                생성되는 컬럼수는
+                (비의 반복수*반복수치의 개수)
+                -> 위의 예에서 2*3=6 개의 컬럼생성!
+            */
 
             /* [ 세로 그리드 템플릿 ] */
             /* 1. 구체적인 수치 높이값 쓴만큼 셋팅
             - 나머지는 자동높이!(큰값을 기준) */
-            grid-template-rows: 100px 200px 300px;
+            /* grid-template-rows: 100px 200px 300px; */
 
+            /* 2. 높이값 전체에서의 비를 쓴만큼 셋팅 */
+            /* grid-template-rows: 1fr 3fr 5fr 2fr; */
+
+            /* 3. repeat(수치의 반복수, 반복수치) */
+            /* grid-template-rows: repeat(4, 300px); */
+
+            /* 4. 모든 값을 동일하게 셋팅 */
+            grid-auto-rows: 400px;
 
             /* [ 수평방향 간격] */
-           grid-column-gap: 1vw;
-           /* [ 수직방향 간격] */
-           grid-row-gap: 1vh;
+            grid-column-gap: 1vw;
+            /* [ 수직방향 간격] */
+            grid-row-gap: 1vh;
+
+            /* 최대크기 */
+            max-width: 1200px;
+            margin: 0 auto;
+            outline: 2px dotted red;
         }
-        
-        .grid img{
+
+        /* 갤러리 이미지 */
+        .grid img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* 비율에 맞춰 이미지를 박스에 채움! */
+            /* 비율에 맞춰 이미지를
+            박스에 채움! 박스 바깥으로
+            나간이미지부분은 자동숨김 */
 
-            /* 최대크기 */
-            min-width: 1200px;
-            margin: 0 auto;
-            outline: 2px dotted red;
         }
     </style>
 </head>
@@ -472,7 +486,7 @@
             </aside>
         </div>
     </div>
-    
+
 </body>
 
 </html>
