@@ -288,9 +288,9 @@
         // 호출하면 당연히!!!! 호출되지 않는다!
 
         // 할당형 익명함수 ////////////////
-        // const myHome = function (txt) {
-        //     console.log("오!나의집!",txt);
-        // }; ///////// myHome 함수 //////////
+        const myHome = function (txt) {
+            console.log("오!나의집!",txt);
+        }; ///////// myHome 함수 //////////
 
         // 할당형 익명함수를 함수코드 아래쪽에서 호출
         // myHome("익명함수 아래에서 호출!");
@@ -300,9 +300,21 @@
         // 전달변수없이 전달값을 arguments배열로 받기!
         // arguments 전달값 배열변수는 화살표함수에서는 못씀!(주의!)
         
-
+        let seq = 0;
         ///// 로드후 초기셋팅함수 호출함! ///////////
-        
+        setInterval(() => {
+            
+            // scent 배열변수에 담긴 이미지를
+            // 순서대로 3초 간격으로 변경할 것.
+            // 순번변경이 필요
+            // 순번변수를 인터발함수 위에 세팅
+            console.log(seq);
+            // body에 배경이미지 변경하기
+            document.body.style.backgroundImage = `url(${scene[seq]})`;
+            seq++;
+            if(seq===2) seq = 0; /* 처음으로 */
+        }, 3000); //////// 인터벌 함수 /////////
+
 
         ///// 일정시간 간격으로 배경이미지 변경하기 ///////
         // setInterval(함수,시간)
@@ -320,11 +332,19 @@
         // 기본 전달값 배열변수가 있다! ->>> arguments
         // 주의: 화살표함수는 이것을 못씀!
         // 글자찍기 함수 //////
+        function Fn() {
+            // 호출시 전달되는 arguments 찍어보기!
+            console.log("전달값 arguments:  ", arguments);
+            for (const x of arguments) {
+                document.body.innerHTML += `<h2>${x}</h2>`; 
+            }
+        }
         
-
         // 일정시간후 한번 함수호출하기!
         // setTimeout(함수,시간)
-       
+       setTimeout(() => {
+        Fn("동해물과", "백두산이", "마르고 닳도록", "하느님이", "보우하사", "우리나라", "만세!");
+       }, 2000); /* 2초후 실행함! */
         
 
     </script>
