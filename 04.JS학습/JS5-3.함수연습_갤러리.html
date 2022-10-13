@@ -181,7 +181,7 @@
                 // dir값 0 : 왼, 1 : 오른
 
                 // 1. 호출 및 전달값 확인
-                console.log("넌 누구냐? ", dir);
+                // console.log("넌 누구냐? ", dir);
 
                 // 2. 버튼별 분기
                 if (dir) { // dir만 쓰면 1인경우 true;
@@ -200,8 +200,8 @@
 
                 // 5. 추가변경내용 : 글자내용+ 글자색
                 // 이미지번호보다 배열번호가 1작음
-                imgtxt.innerText = itxt[inum-1];
-                imgtxt.style.color = tcolor[inum-1];
+                imgtxt.innerText = itxt[inum - 1];
+                imgtxt.style.color = tcolor[inum - 1];
 
             }; //////// goSlide //////////////
 
@@ -265,16 +265,23 @@
                     let isB = x.classList.contains("start");
                     // classList.contains(클래스명)
                     // -> 클래스명이 맞으면 true;
-                    
+
                     console.log("자동넘김 버튼인가요? ", isB);
 
                     // 분기문 //
-                    if(isB){
-                        setInterval(() => goSlide(1), 1000);
-                        // 자기자신 버튼 없애기
-                        x.style.display = "none";
-                        x.style.display = "inline-block";
-                    } /////
+                    if (isB) {
+                        // 멈추기 위해 변수에 인터발 할당!
+                        autoI = setInterval(() => goSlide(1), 1000);
+                    } else { // "멈춤" 버튼일 때
+                        // 인터발 지우기
+                        clearInterval(autoI);
+                    } /////////// if
+
+                    // 자기자신 버튼 없애기
+                    abtn[isB ? 1 : 0].style.display = "inline-block";
+                    // 자동넘김 버튼 보이기
+                    x.style.display = "none";
+                    
                 }; ////// click /////////
             }
             // 타임아웃 함수로 미니언즈 애니하기!!! ////
@@ -282,7 +289,34 @@
             // 일정시간 후 넣고/빼고/넣기를 해준다!
             // 변경대상: #mini
 
+            const mini = document.querySelector("#mini");
+            
+            // 2초후에 미니언즈 class "on1" 넣기
+            setTimeout(() => {
+                
+                mini.classList.add("on1");
+                // mini.classList.add("on1", "바보야", "멍멍아");
+            }, 2000);
+            
+            setTimeout(() => {
+                // 2초후에 미니언즈 class "on1" 넣기빼기
+                mini.classList.remove("on1");
+                // mini.classList.add("on2");v
+            }, 4000);
 
+            setTimeout(() => {
+                // 6초후에 미니언즈 class "on2" 넣기
+                mini.classList.toggle("on2");
+            }, 6000);
+
+            setTimeout(() => {
+                // 8초후에 미니언즈 class "on1" 넣기 / ㅐn2 빼기
+                mini.classList.replace("on2", "on1");
+                // mini.classList.toggle("on1");
+                // mini.classList.toggle("on2");
+            }, 8000);
+
+            
         }); /////////// 로드구역 ///////////////////
     </script>
 </head>
