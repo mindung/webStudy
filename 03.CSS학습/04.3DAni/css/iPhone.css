@@ -25,7 +25,7 @@ body {
     /* 계산을 통한 정중앙셋팅 400의 반, 200의 반 */
     width: 200px;
     height: 400px;
-    outline: 2px solid darkblue;
+    /* outline: 2px solid darkblue; */
 
     /* 입체설정 */
     transform-style: preserve-3d;
@@ -44,7 +44,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
-    outline: 1px dashed red;
+    /* outline: 1px dashed red; */
 }
 
 /* 앞면 */
@@ -101,7 +101,7 @@ body {
 
 /* 애니호출 클래스 */
 .ip-ani {
-    animation: ipAni 3.5s ease-in-out .5s 3 alternate;
+    animation: ipAni 2s ease-in-out .5s 2 alternate;
 }
 
 
@@ -196,4 +196,22 @@ body {
 /* .f1 위치 */
 .f2{
     left: -100%;
+}
+
+/* 이벤트 처리박스 */
+.evt{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    /* 애니후 width: 100vw 변경 */
+    height: 100vh;
+    display: flex;
+}
+
+/* 등분할 박스 */
+.evt div{
+    flex:1;
+    /* outline: 1px dashed blue;
+    background-color: rgba(255, 113, 113, 0.511); */
 }
