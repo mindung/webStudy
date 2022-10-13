@@ -62,39 +62,45 @@
         ****************************************************/
 
         // 일반적인 할당형 함수 /////
-        
+        let x = function (a, b) {
+            return a * b;
+        }
 
         // 함수호출하기
-        
+        console.log("x(100,3)", x(100, 3));
 
         // 축약형
-          
+        let y = (a, b) => {
+            return a * b;
+        }
 
         // 함수호출하기
-        
-
+        console.log("y(100,3)", y(300, 3));
 
         // 좀더 축약!
-        
+
+        let z = (a, b) => a * b;
 
         // 함수호출하기
-        
-
+        console.log("x(400,3)", y(400, 3));
 
         // 일반적인 함수할당
-        
+        let my = function(x) {
+            return `나는 ${x} 이다`;
+        }; /////////// my 
         // 함수호출하기
+        console.log(my("풀스택 개발자"));
         
 
         // 축약형 
         // - 전달변수가 하나일때 소괄호() 생략가능!
         // - 실행문이 하나일때도 중괄호{} 생략가능!
-        
+
 
         ////////// we 함수 ///////////
-
+        let we = x => `나는 ${x}이다`;
         // 함수호출하기
-        
+        console.log(we("풀스택 개발자"));
 
 
         /// 로딩구역 ////////////////////////
@@ -106,11 +112,30 @@
             // 버튼요소 클릭시 글자 바꾸기 //////
 
             // 기존방식 /////
+            btn[0].onclick = function(){
+                // console.log(this);
+                // 클릭된 요소 자신 => this
+                // 버튼글자변경
+                btn[0].innerText = `올드익명함수!`;
+            }; ////// click ////////
             
-
-
+            
+            
             // 새로운 방식 ////
-           
+            // 기존방식 /////
+            btn[1].onclick = ()=>{
+                // console.log(this);
+                // 화살표함수에서 this는 window객체
+                // 요소자신은 이벤트속성의 메소드
+
+                // 클릭된 요소 자신 => this
+                // 버튼글자변경
+                console.log(this);
+                console.log(event.currentTarget);
+                event.currentTarget.innerText = `올드익명함수!`;
+                
+            }; ////// click ////////
+
 
 
 
