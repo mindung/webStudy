@@ -97,6 +97,7 @@
         height: 33%
     }
 
+    /* 3등분 조정 */
     .mlist{
         bottom: 2%;
         width: 90%;
@@ -107,7 +108,7 @@
     }
 
     .mlist ul>li{
-        flex-basis: 30%;
+        flex-basis: 29.23% /* 30%; */
         /*
             기존에 flex:1 등분할 설정
             되어있어서 flex-basis는
@@ -118,12 +119,20 @@
          */
     }
 
+    .tit{
+        font-size: 10vw;
+    }
+
+    .gnb{
+        bottom: -12px;
+    }
+
 }
 /* 500px 이하 미디어쿼리 끝 */
 
-/* 1024px 이하 미디어쿼리 시작 */
-@media screen and (max-width: 1024px) {}
-/* 1024px 이하 미디어쿼리 끝 */
+/* 300px 이하 미디어쿼리 시작 */
+@media screen and (max-width: 300px) {}
+/* 300px 이하 미디어쿼리 끝 */
 
 /* 1024px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1024px) {}
