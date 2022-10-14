@@ -4,7 +4,6 @@
 /* 외부 css 합치기 */
 @import url(reset.css);
 @import url(core.css);
-
 /* 전체배경색 */
 
 body {
@@ -34,7 +33,7 @@ body {
     font-size: 4rem;
     text-align: center;
     line-height: 80px;
-    
+
     /* 그림자 이용하여 Glow효과 */
     text-shadow: 0 0 4px aquamarine;
     /* 애니메이션 : 이시이지반방마 */
@@ -42,21 +41,22 @@ body {
 }
 
 /* 1-2 */
-.gnb{
+.gnb {
     position: absolute;
     bottom: 20px;
     right: 20px;
 }
 
-.gnb ul{
+.gnb ul {
     /* 직계li만 옆으로 흘러간다. */
     display: flex;
     /* 메뉴박스 공통 글자체 */
     font-family: 'Jua', sans-serif;
+   
 }
 
 /* 상위 li만 적용 */
-.gnb ul>li{
+.gnb ul>li {
     position: relative;
     padding: 0 10px;
     font-size: 2rem;
@@ -65,6 +65,7 @@ body {
     padding: 0 10px;
     padding-bottom: 5px;
 }
+
 /* 타이틀 글로우 효과 애니메이션 키프레임*/
 @keyframes titAni {
     to {
@@ -75,10 +76,10 @@ body {
 }
 
 /* GNB 서브메뉴 */
-.smenu{
+.smenu {
     position: absolute;
-    
-    left: 50%; 
+
+    left: 50%;
     /* 부모는 .gnb ul>li */
 
     /* 트랜스폼 X축으로 중앙 이동 */
@@ -91,12 +92,14 @@ body {
 
     display: none;
 }
+
 /* 상위메뉴 li에 마우스오버시 하위메뉴 보이기 */
-.gnb ul>li:hover .smenu{
+.gnb ul>li:hover .smenu {
     display: block;
 }
+
 /* 가상요소로 삼각형 모양 만들기 */
-.smenu::before{
+.smenu::before {
     content: '';
     display: block;
     /* 부모는 smenu */
@@ -116,70 +119,141 @@ body {
 }
 
 /* 서브메뉴 ol */
-.smenu ol{
+.smenu ol {
     border: 1px solid #CCC;
     padding: 10px;
 }
 
-.smenu li{
+.smenu li {
     font-size: 1.6rem;
     line-height: 2;
 }
 
-.smenu a{
+.smenu a {
     display: block;
     /* li패딩안쪽까지 확장! */
 }
 
-.smenu a:hover{
-    color:red;
+.smenu a:hover {
+    color: red;
 }
 
 /* 서브메뉴 오버시 이모지 가상요소로 넣기 */
 /* 영화 하위메뉴 이모지 */
-.gnb ul>li:nth-child(1) .smenu a:hover::after{
+.gnb ul>li:nth-child(1) .smenu a:hover::after {
     content: '💥';
     float: right;
 }
 
-.gnb ul>li:nth-child(2) .smenu a:hover::after{
+.gnb ul>li:nth-child(2) .smenu a:hover::after {
     content: '🎫';
     float: right;
 }
-.gnb ul>li:nth-child(3) .smenu a:hover::after{
+
+.gnb ul>li:nth-child(3) .smenu a:hover::after {
     content: '🎬';
     float: right;
 }
 
-.gnb ul>li:nth-child(4) .smenu a:hover::after{
+.gnb ul>li:nth-child(4) .smenu a:hover::after {
     content: '✨';
     float: right;
 }
 
 /* 서브메뉴 중 li 보더 상단 class  */
 
-.bdt{
+.bdt {
     border-top: 1px solid #CCC;
+}
+
+/* 영사기 박스 */
+#cam {
+    position: absolute;
+    right: -65px;
+    bottom: -11px;
+    /* 부모는 .gnb */
+    /* outline: 2px dashed yellow; */
+}
+
+/* 영사기 이미지 */
+#cam img {
+    /* position: relative; */
+    /* z-index 적용을 위해서 렐러티브 */
+    width: 50px;
+    transform: rotate(25deg);
+    /* z-index: 1; */
+    /* 트랜지션: 속시이지 */
+    transition: .5s ease-out .4s;
+}
+
+/* .gnb에 마우스 오버시 영사기이미지 회전*/
+.gnb:hover #cam img {
+    transform: rotate(0deg);
+    /* 원본 지연시간 없앰 */
+    transition-delay: 0s;
+}
+
+/* 빔박스 */
+.beam {
+    position: absolute;
+    top: -16px;
+    right: 7px;
+    /* 부모는 #cam */
+
+    z-index: -1;
+    /* z-index -1이면 static 보다 아래에 들어감! */
+    width: 0;
+    /* 200px; */
+    height: 70px;
+    background: url(../images/bim.png) no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    transition: .5s ease-out;
+
+    /* outline: 2px dotted hotpink; */
+}
+
+/* .gnb에 마우스 오버시 빔박스 width 늘리기*/
+.gnb:hover #cam .beam {
+    width: 200px;
+    /* 오버시에 트랜지션 지연 */
+    transition-delay: .5s;
 }
 
 /********************* 2. 메인영역 *********************/
 .cont {
     /* 렐러티브 포지션 : 부모자격(#screen) */
     position: relative;
-    height: 788px;
-    background: url(../images/bg.jpg) no-repeat center;
+    /* height: 788px; */
+    /* 비율박스 유지를 위해 높이값 없앰! */
+    background: url(../images/bg.jpg) no-repeat center/100% 100%;
+}
+
+/* 비율유지 가상요소 패딩주기 */
+.cont::before {
+    content: '';
+    display: block;
+    /* div 박스와 비슷함 */
+    padding-top: 65.66%;
+
+    /* 
+        배경이미지와 같은 비율 계산 
+        1200:788 = 100 : x
+
+    */
+
 }
 
 /* 2-1 스크린박스 */
 #screen {
     /* 앱솔루트 포지션 */
     position: absolute;
-    top: 137px;
-    left: calc(50% - 342px);
+    top: 17.3%;
+    left: 21%;
+    width: 59%;
+    height: 51%;
     /* 화면이 줄어도 스크린이 중앙에 위치하도록
     left 50 % 밀고 스크린 크기의 절반정도를 뺌 */
-    width: 699px;
-    height: 400px;
 
     /* 부모는 .cont */
     background-color: black;
@@ -197,8 +271,10 @@ body {
 /* 2-2. 예고편 선택메뉴 */
 .mlist {
     position: absolute;
-    bottom: 50px;
-    width: 100%;
+    left: 50%;
+    bottom: 7%;
+    width: 54%;
+    transform: translateX(-50%);
     /* 앱솔루트 판타롱스타킹이므로 가로크기를
     부모박스에 맞춘다!
     왜 ? flex 정렬 이므로 */
@@ -223,19 +299,23 @@ body {
 /* 상위 li에 마우스 오버시 일어나! */
 
 .mlist ul>li:hover,
-.mlist ul>li.on{
-transform: rotateX(0deg);
+.mlist ul>li.on {
+    transform: rotateX(0deg);
     outline: 1px solid aqua;
     z-index: 1;
 }
 
 .mlist img {
-    width: 99px;
-    height: 140px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* 상위 li */
 .mlist ul>li {
+    flex: 1;
+    /* 플랙스 자식요소 등분할 설정!중요!!!! */
+
     /* 부모 자격 포지션 주기! */
     position: relative;
     overflow: hidden;
@@ -246,7 +326,7 @@ transform: rotateX(0deg);
     transform-origin: bottom;
     transform: rotatex(40deg);
     /* 트랜지션 속시이지 */
-    
+
     transition: all .4s ease-out;
 }
 
@@ -271,7 +351,7 @@ transform: rotateX(0deg);
     background-color: rgba(0, 0, 0, 0.481);
     font-family: 'Cute Font', cursive;
     color: #FFF;
-    font-size: 1.5rem;
+    font-size: min(1.3vw, 16px);
     text-align: center;
     line-height: 2;
 
@@ -286,7 +366,7 @@ transform: rotateX(0deg);
 /* 영화제목만 변경 */
 .movtxt li:first-child {
     color: aqua;
-    font-size: 1.7rem;
+    font-size: min(1.5vw, 18px);
     letter-spacing: -1px;
 }
 
@@ -297,22 +377,25 @@ transform: rotateX(0deg);
 }
 
 /* 3-1. 하단로고 */
-.info{
+.info {
     /* 플렉스 박스 - 하위직계 div만 옆으로 움직임 */
     display: flex;
     height: 100px;
-    /* 진행방향의 수직정렬*/ 
+    /* 진행방향의 수직정렬*/
     align-items: center;
-    min-height: 100px; /* 내용이 늘면 늘어남@ */
+    min-height: 100px;
+    /* 내용이 늘면 늘어남@ */
 }
 
-.info>div:first-child{
+.info>div:first-child {
     margin-right: 20px;
 }
+
 /* 3-2. 회사 주소 */
-.info address{
+.info address {
     color: lightgray;
-    font-style: normal; /* 기울임 제거 */
+    font-style: normal;
+    /* 기울임 제거 */
     font-size: 1.8rem;
     font-family: 'Cute Font', cursive;
     letter-spacing: -0.1rem;
@@ -321,24 +404,25 @@ transform: rotateX(0deg);
 }
 
 /* 3-3. sns 박스 */
-.info>div:last-child{
+.info>div:last-child {
     /* 마지막 div만 오른쪽 끝 이돛ㅇ */
     margin-left: auto;
 }
 
-.sns{
+.sns {
     /* 플렉스박스 - 
     하위 li 옆으로 흐르게 */
     display: flex;
 
 }
 
-.sns li{
+.sns li {
     width: 34px;
     height: 34px;
 }
+
 /* sns a요소 확장 */
-.sns a{
+.sns a {
     display: block;
     font-size: 32px;
     text-align: center;
@@ -346,6 +430,7 @@ transform: rotateX(0deg);
     width: 100%;
     height: 100%;
 }
+
 /* 속성 선택자 -> [] 대괄호 사용
     [속성명=값] -> 값이 정확히 일치할 때 적용
     [속성명*=값] -> 값이 어딘가에 있기만 한다면 (* 모두)
@@ -356,15 +441,14 @@ transform: rotateX(0deg);
 */
 
 /* sns a요소 오버시 */
-.sns a[class*=facebook]:hover{
-    color:lightgreen;
+.sns a[class*=facebook]:hover {
+    color: lightgreen;
 }
 
-.sns a[class*=twitter]:hover{
-    color:rgba(126, 206, 255, 0.648);
+.sns a[class*=twitter]:hover {
+    color: rgba(126, 206, 255, 0.648);
 }
 
-.sns a[class$=gram]:hover{
-    color:rgb(255, 135, 199);
+.sns a[class$=gram]:hover {
+    color: rgb(255, 135, 199);
 }
-
