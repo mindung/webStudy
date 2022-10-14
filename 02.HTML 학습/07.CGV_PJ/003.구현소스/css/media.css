@@ -127,6 +127,10 @@
         bottom: -12px;
     }
 
+    .info address span{
+        display: none;
+        /* 회사주소의 일부를 숨김 */
+    }
 }
 /* 500px 이하 미디어쿼리 끝 */
 
