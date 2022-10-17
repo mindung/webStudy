@@ -35,6 +35,10 @@
       background-color: lightskyblue;
     }
 
+    .gnb:hover{
+      background-color: darkblue;
+    }
+    
     /* ul 초기화 */
     .gnb ul {
       /* 플렉스박스 : 직계li만 옆으로 흐름! */
@@ -95,7 +99,7 @@
     }
 
     /* 부모li에 마우스 오버시 상위메뉴 a요소 변경 */
-    .gnb>ul>li:hover>a {
+    .gnb:hover>ul>li>a {
       color: lightskyblue;
       background-color: darkblue;
     }
