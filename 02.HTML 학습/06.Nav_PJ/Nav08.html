@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유형8.숨긴네비 고정전체창형</title>
+
+    <style>
+        /* 웹폰트 CDN */
+        @import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+        
+        html, body, h1, h2, ul, li{
+            margin: 0;
+            padding: 0;
+        }
+        
+        body{
+            font-family: 'Six Caps', sans-serif;
+            background-image: 
+            linear-gradient(to left, lightblue, lightpink, lightgreen);
+        }
+        
+        h1{
+            text-align: center;
+        }
+
+        .tit{
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            font-size: 15vw;
+            text-align: center;
+        }
+
+        /* 햄버거 버튼 */
+        .ham{
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 50px;
+            outline: 1px dotted red;
+            z-index: 9999;
+        }
+
+        /* 햄버거 버튼바 */
+        .ham span{
+            position: absolute;
+            width: 100%;
+            height: 10px;background-color: #000;
+            transition: .3s ;
+        }
+        .ham.on span{
+            height: 10px;background-color: #FFF;
+        }
+        
+        .ham span:nth-child(1){
+            top: 0px;
+        }
+        .ham span:nth-child(2){
+            top: 20px;
+            left: -50%;
+        }
+        .ham span:nth-child(3){
+            top: 40px;
+        }
+
+        /* 마우스 오버시 */
+        .ham:hover span:nth-child(2){
+            left: 0;
+        }
+        
+        /* 클릭이벤트 -- 띄어쓰기 XX*/
+        .ham.on span:nth-child(1){
+            transform: rotate(45deg);
+            top: 20px;
+        }
+        .ham.on span:nth-child(2){
+            width: 0;
+            left: 50%;
+        }
+        .ham.on span:nth-child(3){
+            transform: rotate(-45deg);
+            top: 20px;
+        }
+
+        .gnb{
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.436);
+            /* z-index: 9999; */
+            transition: top .3s ease-out;
+        }
+        .gnb.on{
+            top: 0;
+        }
+        /* 햄버거버튼 클릭시 JS로 처리할 클래스on 구현 */
+
+        .gnb li+li{
+            margin-top: 2vh;
+        }
+
+        /* gnb 메뉴 */
+        .gnb a{
+            display: inline-block;
+            /* 트렌스폼은 인라인적용 XXX */
+            font-size: 20vh;
+            /* 영문자 대소문자설정 
+            uppercase - 대문자
+            lowercase - 소문자
+            */
+            text-transform: uppercase;
+            line-height: 1;
+            color: #fff;
+            text-decoration: none;
+            transform: translateY(100%);
+        }
+        /* gnb ul */
+        .gnb ul {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            /* 블릿 없앰 */
+            list-style: none;
+        }
+
+
+        /* gnb li */
+        .gnb li{
+            overflow: hidden;
+            outline: 2px dashed yellow;
+        }
+    </style> 
+    <script defer>
+        window.addEventListener("DOMContentLoaded", () => {
+            // 대상: .ham
+            const ham = document.querySelector(".ham");
+            ham.onclick = () => {
+                // 클래스 on 넣기/빼기
+                ham.classList.toggle("on");
+                // GNB 클래스적용 함수 호출
+                // gnb.classList.toggle("on");
+            };
+
+            // 전체메뉴 셋팅
+            // 대상 .gnb
+            const gnb = document.querySelector(".gnb");
+            
+            // 전체메뉴 변경함수
+            const chgGNB = () => {
+                // ham 버튼 클래스 on 여부 확인
+                // classList.contains(클래스명)
+                // 있다면 true/ 없다면 flase
+                let isC =  ham.classList.contains("on");
+                // console.log(isC);
+                if(isC){
+                    gnb.classList.add("on");
+                } else{
+                    gnb.classList.remove("on");
+
+                }
+            };
+            chgGNB();
+        });
+    </script>
+</head>
+
+<body>
+    <h1>유형8.숨긴네비 고정전체창형</h1>
+
+    <h2 class="tit">SHOW ME THE MENU!!</h2>
+
+    <!-- 햄버거 버튼 만들기 -->
+    <div class="ham on">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 전체메뉴 박스-->
+    <div class="gnb ">
+        <ul>
+            <li>
+                <a href="">Identity</a>
+            </li>
+            <li>
+                <a href="">Experience</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Let's talk</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
