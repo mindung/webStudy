@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* 로그인 페이지 미디어쿼리 CSS - media_login.css  */
+
+/**************** 750이하 ****************/
+@media screen and (max-width: 750px) {
+    .cont {
+        padding: 0 15px;
+        /* min-height: 600px; */
+    }
+    .btnbx {
+        position: static;
+        padding-top: 15px;
+    }
+
+    #sbtn {
+        /* 기존 inline-block을 변경 */
+        
+        /* 기존 가로크기 변경 */
+        width: 100%;
+        height: 49px;
+    }
+    .minput label{
+        display: block;
+    }
+    
+    /* 입력박스 */
+    .minput input {
+        width: 100%;
+    }
+
+    /* 기타구분선 3번째 변경 -- 줄바꿈 */
+    .addbx span:nth-child(3){
+        padding-left: 11px;
+    }
+    .addbx span:nth-child(3)::before {
+        content: "";
+        display: block;
+        margin-left: 2px;
+    }
+} /**************** 750px이하 ****************/

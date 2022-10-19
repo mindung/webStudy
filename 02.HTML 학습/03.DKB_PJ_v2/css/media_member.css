@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* 로그인 페이지 미디어쿼리 CSS - media_login.css  */
+
+/**************** 750이하 ****************/
+@media screen and (max-width: 750px) {
+    /* 1. 라벨공통 */
+    .itit {
+        display: block;
+    }
+
+    /* 2. li높이값 해제 */
+    .scont li {
+        height: auto;
+    }
+    /* 3. 입력창 */
+    .scont input[type="text"],
+    .scont input[type="password"] {
+        width: 100%;
+    }
+
+    /* 4. 이메일 입력창 */
+    .meail1{
+        width: 30vw;
+        padding-left: 1vw;
+        box-sizing: border-box;
+    }
+
+    span .gol{
+        font-size: 3vw;
+    }
+
+    #btnj{
+        float: none;
+        width: 100%;
+    }
+} /**************** 750px이하 ****************/
