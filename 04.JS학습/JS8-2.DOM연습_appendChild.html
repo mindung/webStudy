@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JS8-2. DOM연습 - appendChild</title>
+
+        <style>
+            body {
+                background-color: #000;
+            }
+            h1,
+            h2 {
+                color: #fff;
+                text-align: center;
+            }
+            section {
+                position: relative;
+                top: 200px;
+                width: 1000px;
+                float: right;
+            }
+            section img {
+                width: 9%;
+                height: 200px;
+                margin-left: 2px;
+            }
+            section::before {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: -350px;
+                width: 350px;
+                height: 400px;
+                background: url(https://preview.clipartkorea.co.kr/2017/02/07/ti238a7412.jpg)
+                    no-repeat center/cover;
+            }
+            .action {
+                transition: 0.5s;
+                transform: scale(3) rotate(15deg);
+                color: lime;
+            }
+            .action2 {
+                transition: 0.5s;
+                transform: scale(2) rotate(-25deg);
+                color: pink;
+            }
+        </style>
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                // 대상박스: section
+                const box = document.querySelector("section");
+                // 이벤트대상: section img
+                const tg = box.querySelectorAll("img");
+                // 글자출력 대상 : h2
+                const exp = document.querySelector("h2");
+                // 두가지 상태변경을 위한 변수
+                let sts = 0; // 두가지 상태: 0과 1
+
+                // 클릭이벤트
+                for (let x of tg) {
+                    // 2. 클릭된 이미지의 src에서 번호에
+                    // 해당하는 데이터를 잘라서 가져온 후 h2에 출력!
+                    x.onclick = () => {
+                        // 화살표함수 this 대신
+                        // event.currentTarget
+
+                        // 클릭된 img 자신
+                        let me = event.currentTarget;
+                        // 1. 클릭된 img가 맨뒤로감
+                        box.appendChild(me);
+
+                        let isrc = me.src;
+                        // 가공 1. : 슬래쉬(/)로 잘라서 맨끝 데이터
+                        // split(자를기준) -- 배열로 변경
+                        isrc = isrc.split("/");
+                        // 맨끝순번 담기
+                        isrc = isrc[isrc.length - 1];
+
+                        // 가공2: 점(.)으로 잘라서 앞에것 담기
+                        isrc = isrc.split(".")[0];
+
+                        // 가공3: "num_0" 까지는 모두 동일하므로
+                        //  순번 5번부터 끝까지 잘라서 가져옴
+                        // substr(시작순번, 개수)
+                        // ->  뒤엣것 안쓰면 끝까지 가져옴
+                        isrc = isrc.substr(5);
+                        console.log(isrc);
+
+                        // 결국 이미지번호만 추출됨!
+                        // 이것으로 h2 출력
+
+                        // exp변수에 담김
+                        exp.innerText = isrc + "번 맨 뒤로가!";
+                        console.log(sts);
+                        // 이때 h2 클래스에 action을 준다.
+                        exp.classList.add(sts ? "action2" : "action");
+                        exp.classList.remove(sts ? "action" : "action2");
+                        sts ? (sts = 0) : (sts = 1);
+                        console.log(sts);
+                    }; /////////// click ///////////////
+                } ////////// for of /////////////////
+            }); ///////////// 로드 구역 ///////////
+        </script>
+    </head>
+
+    <body>
+        <h1>DOM 연습 - appendChild</h1>
+        <h2>클릭하는 것이 맨뒤로 간다!</h2>
+        <section>
+            <img src="./images/num/num_01.png" alt="숫자" />
+            <img src="./images/num/num_02.png" alt="숫자" />
+            <img src="./images/num/num_03.png" alt="숫자" />
+            <img src="./images/num/num_04.png" alt="숫자" />
+            <img src="./images/num/num_05.png" alt="숫자" />
+            <img src="./images/num/num_06.png" alt="숫자" />
+            <img src="./images/num/num_07.png" alt="숫자" />
+            <img src="./images/num/num_08.png" alt="숫자" />
+            <img src="./images/num/num_09.png" alt="숫자" />
+            <img src="./images/num/num_010.png" alt="숫자" />
+        </section>
+    </body>
+</html>
