@@ -35,6 +35,7 @@
 }
 
 .gnb {
+    display: inline;
     width: 574px;
     margin: 0 auto;
     margin-top: 30px;
