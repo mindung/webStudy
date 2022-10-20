@@ -1,65 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> 그룹 선택자  </title>
+    <head>
+        <meta charset="utf-8" />
+        <title>그룹 선택자</title>
+        <script src="./js/jquery-3.6.1.min.js"></script>
+        <script>
+            $(() => {
+                //////////// jQB
+                $("p, #nav li").onclick(e => {
+                    // 클릭된 요소 자신은 ? this
+                    // 이벤트함수는 event.currentTarget임
+                    // 익명함수에 이벤트 전달함수 (여기서는 e)
+                    console.log(e);
+                    $(e.currentTarget)
+                        .text("나야나!")
+                        .css({ fontSize: "40px", color: "red",
+                              transition: ".4s"});
+                }); /////// click
+            }); //////////// jQB
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <h2>Welcome mySite</h2>
+            <div>
+                <p>Hello</p>
+            </div>
 
-</head>
-  
-<body>
+            <nav>
+                <ul id="nav">
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                </ul>
+            </nav>
+        </div>
 
-<div id="container">
- <h2> Welcome mySite </h2>
- <div>
-    <p> Hello </p>
- </div>
-
- <nav>
-  <ul id="nav">
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-   <li>One</li>
-   <li>Two</li>
-   <li>Three</li>
-  </ul>
- </nav>
-
-</div>
-
-<!---------- jQuery code Start ---------->
-<script>
-
-</script>
-
-
-</body>
+        <!---------- jQuery code Start ---------->
+        <script></script>
+    </body>
 </html>
-
