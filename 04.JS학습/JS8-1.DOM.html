@@ -178,12 +178,12 @@
                 //// DOM 요소 제어 및 조작하기 //////////////
                 ////////////////////////////////////////////
 
-                // 변경대상: #div02 ul 
+                // 변경대상: #div02 ul
                 const ctg = document.querySelector("#div02 ul");
                 // ctg -> current target! 현재 타겟!
-                
+
                 // 이미지 설명 배열변수
-                const tit = ["아이언맨","딱딱이","토르","닥스","스타로드"];
+                const tit = ["아이언맨", "딱딱이", "토르", "닥스", "스타로드"];
                 /////////////////////////////////////////////
                 // 새리스트 생성 버튼 클릭시 리스트 만들기 ////
                 // 이벤트 종류: click
@@ -194,29 +194,30 @@
                 nbt.onclick = () => {
                     // 1. 호출확인
                     console.log("새 리스트 생성!");
-                    
+
                     // 2. 새로운 li를 생성하여 변수에 할당
                     let ne = document.createElement("li");
                     // createElement() 메모리상에 생성
-                    
+
                     // 3. 이미지번호 랜덤(1~5)
-                    let rn = Math.ceil(Math.random()*5);
+                    let rn = Math.ceil(Math.random() * 5);
                     // console.log(rn);
                     // 4. 메모리상에 생성된 li 이미지 넣기
-                    ne.innerHTML = 
-                    `<img src ="images/ab${rn}.jpg" alt ="${tit[rn-1]}">`;
+                    ne.innerHTML = `<img src ="images/ab${rn}.jpg" alt ="${
+                        tit[rn - 1]
+                    }">`;
                     // 5. 새로운 li요소 title 속성으로 툴팁넣기
                     //  =  `${tit[rn-1]}`;
-                    ne.querySelector("img").title = tit[rn-1] + (rn===1?"을 ":"를 ") + "클릭하면 삭제됩니다!";
+                    ne.querySelector("img").title =
+                        tit[rn - 1] +
+                        (rn === 1 ? "을 " : "를 ") +
+                        "클릭하면 삭제됩니다!";
                     // 6. 새로운 li클릭시 지우기 셋팅
                     ne.onclick = () => ne.remove();
                     // 7. 변경대상(ctg)에 새로운 li 맨뒤에 추가
                     // appendChild(요소) -> 맨뒤에 요소 추가
                     ctg.appendChild(ne);
-
-                }; ////// click ///////////// 
-
-
+                }; ////// click /////////////
 
                 ///////////////////////////////////////////////
                 ///// 최초 리스트의 li를 클릭하면 지우기 셋팅! //
@@ -229,19 +230,19 @@
                 /////////////////////////////////////////////
                 // 기존 li 삭제 셋팅 대상 - #div02 ul li
                 let del = ctg.querySelectorAll("li");
-                console.log(del);
+                // console.log(del);
                 // 대상에 클릭시 삭제 셋팅
-                for(let x of del){
+                for (let x of del) {
                     // 1. 대상 내부의 img 요소
                     let ximg = x.querySelector("img");
 
                     // 2. 기존 img에 title 속성 넣기
-                    ximg.title =  
-                    ximg.alt + 
-                    (ximg.alt==="아이언맨" ? "을" : "를") +
-                     " 클릭하면 삭제됩니다."
+                    ximg.title =
+                        ximg.alt +
+                        (ximg.alt === "아이언맨" ? "을" : "를") +
+                        " 클릭하면 삭제됩니다.";
 
-                     x.onclick = () => x.remove();
+                    x.onclick = () => x.remove();
                 }
 
                 ///// 맨앞요소를 맨뒤로 이동하기 ////////////////////
@@ -256,6 +257,36 @@
                 // -> 기존요소를 선택하면 이동이 됨!
                 /////////////////////////////////////////////////
 
+                // 대상 : .mvl
+                // 기존 li 삭제 셋팅 대상 -> #div02 ul li
+                let del1 = ctg.querySelectorAll("li");
+
+                // 대상에 클릭시 삭제 셋팅하기
+                for (let x of del1) {
+                    // 1. 대상 내부의 img요소
+                    let ximg = x.querySelector("img");
+
+                    // 2. 기존 img에 title 속성 변경하기
+                    ximg.title =
+                        ximg.alt +
+                        (ximg.alt === "아이언맨" ? "을" : "를") +
+                        " 클릭하면 삭제됩니다!";
+
+                    // 3. 기존 li를 클릭시 지우기 셋팅
+                    x.onclick = () => x.remove();
+                } ///////// for of //////////
+                const mvl = document.querySelector(".mvl");
+                mvl.onclick = () => {
+                    // 호출확인
+                    console.log("맨뒤로 가라!", mvl);
+                    // 이동대상 : 변수 ctg 아래 li 첫번째 요소
+                    let fele = ctg.querySelectorAll("li")[0];
+                    console.log(fele);
+                    // fale -> first element (첫번째요소)
+
+                    // 맨뒤로 이동 : appendChild(요소)
+                    ctg.appendChild(fele);
+                }; ///////////// click ///////////
                 /// 맨뒤요소 맨앞으로 이동하기 ///////////////////////
                 // 이벤트 종류: click
                 // 이벤트 대상: .mvf
@@ -266,6 +297,24 @@
                 // 넣을놈 - 마지막 li요소
                 // 넣을놈전놈 - 맨처음 li요소
                 //////////////////////////////////////////////////
+
+                const mvf = document.querySelector(".mvf");
+                // 클릭이벤트 설정
+                mvf.onclick = () => {
+                    console.log(mvf);
+                    // 이동대상: 변수 ctg 아래 li 요소들
+                    let eles = ctg.querySelectorAll("li");
+
+                    // 맨앞으로 이동
+                    // -> insertBefore(넣을놈, 넣을놈전놈)
+                    // insertBefore(맨뒤 li, 맨앞li)
+                    ctg.insertBefore(eles[eles.length-1],eles[0])
+                    // 맨뒤 li -> eles[마지막번호], eles[첫번호]
+                    // 마지막번호 -> 개수 - 1
+                    // eles[eles.length-1]
+                    // ※ 배열과 컬렉션의 마지막 순번은
+                    // 항상 [개수-1]이다!
+                }; ///////////click
 
                 /************************************************* 
                     ※ appendChild() 와 insertBefore()는 대상을
