@@ -140,7 +140,7 @@ body * {
     right: 0;
 
     /* 트렌지션 속시이지 */
-    transition: border 0.5s ease-in;
+    transition: border 0.3s ease-in;
 }
 .cbx:hover::after {
     border: 20px solid red;
@@ -171,4 +171,12 @@ body * {
 .bgi {
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* 글자숨김 클래스(iR 배경이미지 설명 등 숨기기) */
+.ir{
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
