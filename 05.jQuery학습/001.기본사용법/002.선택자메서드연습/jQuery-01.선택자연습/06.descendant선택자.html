@@ -18,12 +18,19 @@
       // 10px씩 커지게함과 동시에 한번은 오른쪽, 
       // 한번은 왼쪽으로 10도씩 기울어지게 애니메이션 하시오.
     $(".list img").css({width:"100px"});
+    // 각도변수
+    let dg = 10;
+
     $(".list img").click(function(){
       $(this).css({
         width:"+=10px",
-        transform:"rotate(10deg)",
+        transform:`rotate(${dg}deg)`,
         transition:".3s"
-      });
+      }); ////// css  
+
+      // 각도 양수/음수 전환
+      dg = - dg;
+
     });
 
 
