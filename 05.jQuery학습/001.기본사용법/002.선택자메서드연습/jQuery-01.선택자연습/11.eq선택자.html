@@ -34,7 +34,16 @@
                 });
 
                 // 무지개색 배열
-                const rcolor = [ "red","orange", "yellow", "green", "blue", "navy", "purple"];
+                const rcolor = [
+                    "red",
+                    "orange",
+                    "yellow",
+                    "green",
+                    "blue",
+                    "navy",
+                    "purple",
+                ];
+
                 // 배열순번변수
                 let cseq = 0;
 
@@ -42,7 +51,7 @@
                 //글자크기를 5px씩 커지게 하시오. 동시에 글자색을
                 //무지개색 순서로 차례로 변경되게 하시오.
 
-                $(".nav1 li").click(e => {
+                $(".nav1 li").click((e) => {
                     cseq;
                     $(e.currentTarget).css({
                         // 클릭된 자신은 this지만
@@ -58,16 +67,25 @@
                 //선택된 이름의 배경색을 무지개색 순번으로 변경하시오.
                 //동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
 
-				$("#selnum").change(function(){
-					let snum = $(this).val();
-					// val() 선택요소의 값을 읽어오는 메서드
-					
-					// 배경이미지 
-					$("body").css({
-						background: `url(img/${snum}.jpg) no-repeat center/cover`,
+                $("#selnum").change(function () {
+                    let snum = $(this).val();
+                    // val() 선택요소의 값을 읽어오는 메서드
 
-					});
-				}) /////// change ////////// 
+                    // 초기화
+                    $(".nav1 li").css({
+                        backgroundColor: "transparent",
+                    });
+					// :eq(순번) -- 제이쿼리 전용
+					
+                    // 순번을 사용하여 .nav1 li 같은 순번배경색 변경
+                    $(`.nav1 li:eq(${snum})`).css({
+                        backgroundColor: "red",
+                    });
+                    // 배경이미지
+                    $("body").css({
+                        background: `url(img/${snum}.jpg) no-repeat center/cover`,
+                    });
+                }); /////// change //////////
             }); /////////////////// jQB ///////////////////
         </script>
     </head>
