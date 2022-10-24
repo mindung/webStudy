@@ -1,57 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>eq 선택자</title>
 
-<head>
-	<meta charset="utf-8">
-	<title> eq 선택자 </title>
-	<style>
-		html,
-		body {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			height: 100%;
-		}
-	</style>
-	
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
 
-</head>
+            .nav1 {
+                /* 영역선택 안되게 함 */
+                user-select: none;
+                /* 드래그 안되게  */
+                -webkit-user-drag: none;
+            }
+        </style>
+        <!-- 제이쿼리 라이브러리 -->
+        <script src="js/jquery-3.6.1.min.js"></script>
+        <script>
+            $(() => {
+                /////////////////// jQB ///////////////////
+                $(".nav1 li, #selnum").css({
+                    fontSize: "42px",
+                    textShadow: "0 0 10px grey",
+                    cursor: "pointer",
+                    width: "400px",
+                    wrap: "nowrap",
+                });
 
-<body>
+                // 무지개색 배열
+                const rcolor = [ "red","orange", "yellow", "green", "blue", "navy", "purple"];
+                // 배열순번변수
+                let cseq = 0;
 
-	<div id="container">
-		<select id="selnum">
-			<option value="tt">이름을 선택하세요</option>
-			<option value="0">김수현</option>
-			<option value="1">정우성</option>
-			<option value="2">유아인</option>
-			<option value="3">아이유</option>
-			<option value="4">박보검</option>
-			<option value="5">송중기</option>
-			<option value="6">김혜수</option>
-			<option value="7">전지현</option>
-			<option value="8">손예진</option>
-		</select>
+                // 1차 미션: .nav1 아래 li를 클릭시 클릭된 li의
+                //글자크기를 5px씩 커지게 하시오. 동시에 글자색을
+                //무지개색 순서로 차례로 변경되게 하시오.
 
-		<ul class="nav1">
-			<li>김수현</li>
-			<li>정우성</li>
-			<li>유아인</li>
-			<li>아이유</li>
-			<li>박보검</li>
-			<li>송중기</li>
-			<li>김혜수</li>
-			<li>전지현</li>
-			<li>손예진</li>
-		</ul>
+                $(".nav1 li").click(e => {
+                    cseq;
+                    $(e.currentTarget).css({
+                        // 클릭된 자신은 this지만
+                        // 화살표 함수는 event.currentTarget
+                        fontSize: "+=5px",
+                        color: rcolor[cseq],
+                    }); ///////// css ///////////
+                    cseq++;
+                    if (cseq == 7) cseq = 0;
+                }); /////////// click /////////////
 
-	</div>
+                //// 2차미션 : 선택박스의 선택을 변경하는 순간
+                //선택된 이름의 배경색을 무지개색 순번으로 변경하시오.
+                //동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
 
-	<!---------- jQuery code Start ---------->
-	<script>
+				$("#selnum").change(function(){
+					let snum = $(this).val();
+					// val() 선택요소의 값을 읽어오는 메서드
+					
+					// 배경이미지 
+					$("body").css({
+						background: `url(img/${snum}.jpg) no-repeat center/cover`,
 
+					});
+				}) /////// change ////////// 
+            }); /////////////////// jQB ///////////////////
+        </script>
+    </head>
 
-	</script>
-</body>
+    <body>
+        <div id="container">
+            <select id="selnum">
+                <option value="tt">이름을 선택하세요</option>
+                <option value="0">김수현</option>
+                <option value="1">정우성</option>
+                <option value="2">유아인</option>
+                <option value="3">아이유</option>
+                <option value="4">박보검</option>
+                <option value="5">송중기</option>
+                <option value="6">김혜수</option>
+                <option value="7">전지현</option>
+                <option value="8">손예진</option>
+            </select>
 
+            <ul class="nav1">
+                <li>김수현</li>
+                <li>정우성</li>
+                <li>유아인</li>
+                <li>아이유</li>
+                <li>박보검</li>
+                <li>송중기</li>
+                <li>김혜수</li>
+                <li>전지현</li>
+                <li>손예진</li>
+            </ul>
+        </div>
+
+        <!---------- jQuery code Start ---------->
+        <script></script>
+    </body>
 </html>
