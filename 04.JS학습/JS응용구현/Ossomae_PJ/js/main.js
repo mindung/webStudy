@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //  왼쪽버튼 클릭시 -> 맨 뒤 요소 맨앞으로 이동
     //  ->insertBefore(넣을놈, 놓을놈 전놈)
-    
+
     // 오른쪽버튼 클릭시 -> 맨 앞 요소 맨뒤로 이동
     // -> appendChild(요소)
 
@@ -15,9 +15,20 @@ window.addEventListener("DOMContentLoaded", () => {
     const gbx = document.querySelector(".gbx");
     // 이벤트 대상: .abtn
     const abtn = document.querySelectorAll(".abtn");
+    
     // 0번째는 왼쪽, 1번째는 오른쪽
-    abtn[0].onclick = () => goSlide(0);
-    abtn[1].onclick = () => goSlide(1);
+    abtn[0].onclick = () => {
+        // 인터발 지움 함수 호출
+        clearAuto();
+        // 슬라이드 이동함수 호출
+        goSlide(0);
+    };
+    abtn[1].onclick = () => {
+        // 인터발 지움 함수 호출
+        clearAuto();
+        // 슬라이드 이동함수 호출
+        goSlide(1);
+    };
 
     // 광클금지 상태변수
     let prot = 0; // 0: 허용, 1-불허용
@@ -25,9 +36,10 @@ window.addEventListener("DOMContentLoaded", () => {
     /***************************************
         함수명: goSlide
         기능: 내부 박스요소 앞뒤로 변경
-    ***************************************/ 
+    ***************************************/
 
-    function goSlide(dir) {  // 0: 왼, 1: 오
+    function goSlide(dir) {
+        // 0: 왼, 1: 오
 
         // 0. 광클금지 ///////
         if (prot) return; ///// prot===1이면 돌아가기!
@@ -44,13 +56,40 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log(tg);
 
         // 3. 분기하기
-        
-        if(dir){ // dir 1인경우
+
+        if (dir) {
+            // dir 1인경우
             // 맨 앞요소 맨뒤로 이동
-            gbx.appendChild(tg[0])
+            gbx.appendChild(tg[0]);
         } else {
-            gbx.insertBefore(tg[tg.length-1],tg[0])
+            gbx.insertBefore(tg[tg.length - 1], tg[0]);
         }
     } //////////////goSlide 함수 //////////////////
 
+    // 인터발용 변수
+    let autoI;
+    // 자동 넘기기
+    // 인터발함수를 지우려면 변수에 넣고
+    // clearInterval(변수) 해야함
+    function slideAuto() {
+        autoI = setInterval(() => {
+            goSlide(1);
+        }, 2000);
+    } /////////// 슬라이드 Auto함수
+
+    // 인터발함수 최초 호출
+    slideAuto();
+
+    // 타임아웃용 변수
+    let autoT;
+    // 인터발 지우기함수
+    function clearAuto() {
+        clearInterval(autoI);
+        // 1. 인터발 지우기
+        console.log("지워주세요!");
+        // 2. 타임아웃 지우기(실행쓰나미 방지)
+        clearTimeout(autoT)
+        // 2. 일정시간 후 인터발 호출!
+        autoT = setTimeout(slideAuto(), 4000);
+    } ////// clearAuto 함수 ///////
 }); /////////////////// 로드구역 ///////////////////
