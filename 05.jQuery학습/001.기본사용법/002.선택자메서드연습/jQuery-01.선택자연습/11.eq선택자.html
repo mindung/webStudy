@@ -42,6 +42,8 @@
                     "blue",
                     "navy",
                     "purple",
+                    "pink",
+                    "lime"
                 ];
 
                 // 배열순번변수
@@ -70,16 +72,25 @@
                 $("#selnum").change(function () {
                     let snum = $(this).val();
                     // val() 선택요소의 값을 읽어오는 메서드
+                    // JS에서 this.value임
+
+                    // 첫번째 option값인 "tt"이면 나가라!
+                    if (snum === "tt") {
+                        alert("값을 선택하세요!");
+                        return;
+                    }
+                    // return은 중간에 코드를 중지하거나
+                    // 어떤 값을 함수호출한 곳으로 가져갈 때 사용
 
                     // 초기화
                     $(".nav1 li").css({
                         backgroundColor: "transparent",
                     });
-					// :eq(순번) -- 제이쿼리 전용
-					
+                    // :eq(순번) -- 제이쿼리 전용
+
                     // 순번을 사용하여 .nav1 li 같은 순번배경색 변경
                     $(`.nav1 li:eq(${snum})`).css({
-                        backgroundColor: "red",
+                        backgroundColor: rcolor[snum],
                     });
                     // 배경이미지
                     $("body").css({
