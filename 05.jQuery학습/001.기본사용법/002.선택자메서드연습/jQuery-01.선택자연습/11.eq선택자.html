@@ -86,7 +86,12 @@
                     $(".nav1 li").css({
                         backgroundColor: "transparent",
                     });
-                    // :eq(순번) -- 제이쿼리 전용
+                    /*
+                        :eq(순번) -- 제이쿼리 전용
+                        sequnce에서 나온 말!(순번)
+                        순번은 0부터 시작됨
+                        
+                    */ 
 
                     // 순번을 사용하여 .nav1 li 같은 순번배경색 변경
                     $(`.nav1 li:eq(${snum})`).css({
