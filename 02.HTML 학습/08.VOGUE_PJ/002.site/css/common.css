@@ -122,7 +122,6 @@
     min-height: 115px;
     text-align: center;
     margin-top: 1px;
-    margin-bottom: 10px;
 }
 
 /******************* 1.3 GNB박스 *******************/
@@ -165,5 +164,43 @@
 }
 /*************** 2. 하단영역 ***************/
 .info {
+    background-color: black;
     min-height: 286px;
+    padding: 70px;
+    /* 크기유지박스 bxb - 보더,패딩포함 */
+    box-sizing: border-box;
+    font-family: "Roboto", nbg;
+}
+
+ /* 3-1. 회사로고  */
+.blogo{
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+}
+ /* 3-2. 회사주소  */
+ .addr{
+    color: #747474;
+    font-size: 11px;
+    text-align: center;
+    /* address 기본 이텔릭 해제 */
+    font-style: normal;
+    margin: 20px 0 10px;
+ }
+
+ /* 3-3 하단링크  */
+.blink{
+    /* 플렉스박스 */
+    display: flex;
+    /* 수평방향정렬 중앙 */
+    justify-content: center;
+    flex-wrap:wrap;
+}
+.blink a{
+    color: #747474;
+    font-size: 13px;
+    margin: 0 6px;
+}
+.blink li:last-child a{
+    font-weight: bold;
 }
