@@ -4,7 +4,69 @@
 <head>
   <meta charset="utf-8">
   <title> Traversal- siblings </title>
-  
+  <script src="./js/jquery-3.6.1.min.js"></script>
+  <script src="./js/jquery-ui.min.js"></script>
+  <script>
+    $(()=> { /// jQB ////
+
+      /* 
+        siblings() 메서드
+        - 선택요소를 제외한 나머지 형제요소들 선택함
+
+        siblings(필터) 메서드
+        - 필터에 특정요소나 요소명을 쓰면
+        다른 형제요소들 특정요소만 선택함
+      */
+
+      // 전체박스
+      let tg = $("#container");
+
+      // 미니언즈 300개 셋팅하기
+      // for(시;한;증){실행코드}
+      // 기존요소에 계속 더하기 메서드는?
+      // -> append()
+      for(let i = 0; i<300; i++){
+        tg.append('<img src="images/mini.jpg" alt="미니언즈">');
+      } ////////  for ////////////// 
+
+      // 미니언즈 크기 변경
+      tg.find("img") // 모든 미니언즈 이미지
+      .css({
+        width:"100px"
+      }) /// css
+      .click(function(){
+        // 미니언즈 이미지 클릭시
+        // 클릭된 미니언즈 200px로 커지는 애니
+        // 나머지는 모두 50px로 작아지는 애니
+        $(this).animate({width:"200px"}, 600)
+        .siblings() // 다른 미니언즈 요소 모두
+        .delay(600)
+        .animate({width:"50px"}, 200)
+
+        // siblings(필터) 를 활용한 테두리주기!
+        // 클릭된 미니언즈 이외의 다른 미니언즈 중
+        // class가 "my"인 형제요소를
+        // 선택하여 테두리주기!
+
+        $(this).css({
+          border:"none",
+
+        }).siblings(".my").css({
+          border:"5px dotted orange "
+        }) // -> 형제들 중 ".my"인 요소들
+      }) /////// click
+
+      /* ************************************************ */
+
+      // 미니언즈 중 7n+1번째 이미지에 클래스 my 넣기
+      // class넣는 메서드는? addClass(클래스명)
+      tg.find("img:nth-child(7n+1)").addClass("my");
+      // n은 0부터
+
+      
+
+    }) /// jQB ////
+  </script>
 
   <style>
     div,
