@@ -126,6 +126,27 @@
             .svg2:hover .rt1{
                 stroke-dashoffset: 0;
             }
+
+            /* 3. 닥스박스 : 닥가형(6각형) */
+            .svg3 svg{
+                background: url(./images/doc.jpg) no-repeat top/cover;
+                clip-path: polygon(50% 0, 100% 33%, 100% 66%, 50% 100%, 0% 66%, 0% 33%);
+                /* 다각형 클리핑 적용하기! */
+            }
+            /* 다각형 */
+            .pg1{
+                /* 채우기 */
+                fill: none;
+                stroke: lightsalmon;
+                
+                stroke-width: 20;
+                /* 데쉬설정 : 50% X 6조각 = 300%*/
+                stroke-dashoffset: 300%;
+                transition: .8s ease-out;
+            }
+            .svg3:hover .pg1{
+                stroke-dashoffset: 0;
+            }
     </style>
     <body>
         <div class="wrap">
@@ -145,7 +166,14 @@
                     </svg>
                 </div>
             </section>
-            <section></section>
+            <!-- 3. 닥스박스 : 다각형(6각형) -->
+            <section>
+                <div class="cbx svg3">
+                    <svg>
+                        <polygon class="pg1" points="150, 10 290,100, 290,200 150,290 10,200 10,100"></polygon>
+                    </svg>
+                </div>
+            </section>
             <section></section>
             <!-- 
                 [ SVG란? ]
@@ -182,6 +210,12 @@
                 : width : 가로크기
                 height : 세로크기
                 x, y: x,y축
+
+                [ polygon 요소 : 다각형 ]
+                - points 속성
+                - 표현법: <polygon points="x1,y1 x2,y2  ...">
+                    -> x,y 좌표를 콤마로 구분하고 
+                    다른 좌표는 띄어쓰기로 구분함
              -->
         </div>
     </body>
