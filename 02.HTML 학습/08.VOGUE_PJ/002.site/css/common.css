@@ -3,6 +3,10 @@
 /* 상단영역 + 하단영역 */
 
 /*************** 1. 상단영역 ***************/
+#top{
+    z-index: 9999;
+    box-shadow: 0 2px 2px rgba(158, 158, 158, 0.774);
+}
 .top {
     min-height: 206px;
 }
@@ -162,6 +166,59 @@
 .gnb a:hover{
     color: red;
 }
+/************ 슬림 상단 디자인 변경 ************/
+/* #top 최상위 박스에 클래스 "on"을 줘서 적용 */
+
+/* 1. 상단영역 최상위 고정 */
+#top.on{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* 2. 탑메뉴 없애기 */
+#top.on .top{
+    min-height: auto;
+}
+
+#top.on .tmenu{
+    display: none;
+}
+
+#top.on .logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    height: auto;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+#top.on .logo img{
+    width: 100px;
+}
+
+/* 5. GNB 메뉴 */
+#top.on .gnb{
+    font-size: 14px;
+}
+
+#top.on .gnb a{
+    color: #333;
+}
+#top.on .gnb li{
+    padding-right: 35px;
+}
+
+#top.on .gnb li:last-child{
+    padding-right: 0;
+}
+
+/* 미디어쿼리 GNB마진left 수치적용) */
+/* 1300px+120px=1420 */
 /*************** 2. 하단영역 ***************/
 .info {
     background-color: black;
